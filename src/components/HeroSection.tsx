@@ -108,10 +108,10 @@ export default function HeroSection() {
                             : "translate-y-0 opacity-100"
                         }`}
                 >
-                    <span className="mb-4 inline-block text-[10px] md:text-[12px] font-bold tracking-[0.3em] uppercase opacity-90 transition-all duration-700">
+                    <span className="mb-6 inline-block text-[12px] md:text-[14px] font-bold tracking-[0.4em] uppercase opacity-90 transition-all duration-700">
                         {currentSlide.label}
                     </span>
-                    <h1 className="mb-10 text-[32px] md:text-[32px] font-medium tracking-[0.1em] uppercase leading-tight md:leading-[1.1]">
+                    <h1 className="mb-12 text-[40px] md:text-[64px] font-medium tracking-[0.05em] uppercase leading-[1.1] md:leading-[1.1]">
                         {currentSlide.title.split(' & ').map((part, i, arr) => (
                             <span key={i}>
                                 {part}
@@ -137,50 +137,6 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Slide Indicators */}
-            <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-3">
-                {slides.map((_, i) => (
-                    <div
-                        key={i}
-                        className={`h-[1px] w-8 transition-all duration-500 ${i === currentIndex ? "bg-white" : "bg-white/30"
-                            }`}
-                    />
-                ))}
-            </div>
-
-            {/* Circular Progress Timer (Bottom Right) */}
-            <div className="absolute bottom-10 right-10 flex items-center justify-center">
-                <div className="relative w-12 h-12">
-                    {/* Background Circle */}
-                    <svg className="w-full h-full transform -rotate-90">
-                        <circle
-                            cx="24"
-                            cy="24"
-                            r="20"
-                            stroke="rgba(255,255,255,0.2)"
-                            strokeWidth="2"
-                            fill="transparent"
-                        />
-                        {/* Progress Circle */}
-                        <circle
-                            cx="24"
-                            cy="24"
-                            r="20"
-                            stroke="white"
-                            strokeWidth="2"
-                            fill="transparent"
-                            strokeDasharray="125.6"
-                            strokeDashoffset={125.6 - (125.6 * progress) / 100}
-                            className="transition-all duration-300 ease-linear"
-                            strokeLinecap="round"
-                        />
-                    </svg>
-                    {/* Slide Number */}
-                    <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold">
-                        {currentIndex + 1}
-                    </span>
-                </div>
-            </div>
 
         </section>
     );

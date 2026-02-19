@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Nunito } from "next/font/google";
 import "./globals.css";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -29,12 +28,7 @@ export default function RootLayout({
       <body
         className={`${instrumentSans.variable} ${nunito.variable} antialiased font-sans`}
       >
-        <header className="fixed top-0 left-0 right-0 z-50">
-          <AnnouncementBar />
-          <Navbar />
-        </header>
-        {/* Spacer for fixed header */}
-        <div className="h-[96px]" />
+        <Header />
         {children}
       </body>
     </html>
