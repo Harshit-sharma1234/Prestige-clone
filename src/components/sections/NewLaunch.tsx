@@ -15,7 +15,7 @@ export default function NewLaunch() {
                 <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white opacity-90 mb-3">
                     NEW PRODUCT
                 </span>
-                <h2 className="text-[28px] md:text-[36px] font-medium tracking-[0.1em] uppercase text-white leading-tight mb-6">
+                <h2 className="text-[28px] md:text-[36px] tracking-[0.1em] uppercase text-white leading-tight mb-6">
                     LE BACKPACK
                 </h2>
                 <CTAButton text="SHOP" href="/collections/new-arrivals" />

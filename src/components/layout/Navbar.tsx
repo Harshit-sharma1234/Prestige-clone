@@ -4,29 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import CountryDropdown from "./CountryDropdown";
-
-const navLinks = [
-
-    { label: "WOMEN", href: "/collections/women" },
-    { label: "MEN", href: "/collections/men" },
-    { label: "BLOG", href: "/collections/blog" },
-    { label: "About", href: "/collections/about" },
-
-];
+import { useScroll } from "@/hooks/useScroll";
+import { navLinks } from "@/lib/data";
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
+    const isScrolled = useScroll(40);
     const [isHovered, setIsHovered] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 40);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     // Lock body scroll when mobile menu is open
     useEffect(() => {

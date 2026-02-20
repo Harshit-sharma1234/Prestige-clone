@@ -88,7 +88,7 @@ export default function BestSellers() {
     };
 
     return (
-        <section id="best-sellers" className="bg-[#efefef] py-20 px-6 md:px-12 group/section font-sans">
+        <section id="best-sellers" className="bg-[#efefef] py-20 px-6 md:px-[160px] group/section font-sans">
             <div className="mx-auto max-w-[1440px] text-center">
                 <div className="flex justify-center mb-8">
                     <h6 className="text-[12px] tracking-[0.2em] uppercase text-primary-dark py-2 px-6 inline-block">
@@ -141,8 +141,8 @@ export default function BestSellers() {
                         className="flex gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
                     >
                         {products[activeTab].map((product) => (
-                            <div key={product.id} className="w-[349px] flex-shrink-0 group/card cursor-pointer snap-start">
-                                <div className="relative w-[349px] h-[349px] mb-6 overflow-hidden">
+                            <div key={product.id} className="w-[280px] md:w-auto md:flex-1 flex-shrink-0 group/card cursor-pointer snap-start">
+                                <div className="relative w-full aspect-square max-w-[349px] mx-auto mb-6 overflow-hidden">
                                     {product.badge && (
                                         <span className="absolute top-4 left-4 z-10 text-[8px] font-bold tracking-[0.1em] uppercase text-black/60">
                                             {product.badge}

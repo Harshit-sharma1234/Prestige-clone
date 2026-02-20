@@ -2,36 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const slides = [
-    {
-        label: "LE NOVA",
-        title: "ELEGANT & TIMELESS",
-        buttons: [{ text: "VIEW COLLECTION", href: "/collections/le-nova" }],
-        background: { type: 'image', url: '/assets/hero-bag-2.png' }
-    },
-    {
-        label: "NEW COLLECTION",
-        title: "BEAUTIES",
-        buttons: [
-            { text: "WOMEN", href: "/collections/women" },
-            { text: "MEN", href: "/collections/men" }
-        ],
-        background: { type: 'video', url: 'https://prestige-theme-allure.myshopify.com/cdn/shop/videos/c/vp/a9ea64c362124ba0b6ffc37ea30bc5c8/a9ea64c362124ba0b6ffc37ea30bc5c8.HD-1080p-4.8Mbps-13664080.mp4?v=0' }
-    },
-    {
-        label: "LE SAC BAGUETTE",
-        title: "INSPIRED BY THE 90S",
-        buttons: [{ text: "SHOP NOW", href: "/collections/bags" }],
-        background: { type: 'image', url: '/assets/hero-bag-1.png' }
-    },
-    {
-        label: "LE MINI",
-        title: "CHARTREUSE CHIC",
-        buttons: [{ text: "SHOP NOW", href: "/collections/bags" }],
-        background: { type: 'image', url: '/assets/hero-bag-3.png' }
-    }
-];
+import { slides } from "@/lib/data";
 
 const SLIDE_DURATION = 3500; // Total time per slide including transition
 

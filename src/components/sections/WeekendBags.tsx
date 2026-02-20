@@ -3,36 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
-
-const products = [
-    {
-        id: 1,
-        name: "LE COMPACT WEEKENDER BUFFALO BLACK",
-        price: "$470.00",
-        image: "/assets/Le-Compact-Weekender-Buffle-Noir-01_2c0fb581-2bd2-453e-a305-161fbfb97621.webp",
-        badge: "BEST SELLER"
-    },
-    {
-        id: 2,
-        name: "LE COMPACT WEEKENDER BLACK PEBBLED LEATHER",
-        price: "$470.00",
-        image: "/assets/Weekender-Graine-Noir-01_30f52b96-4635-4e78-a3aa-cfc6d4cfbc42.webp",
-    },
-    {
-        id: 3,
-        name: "LE COMPACT WEEKENDER BLUE PEBBLED LEATHER",
-        price: "$470.00",
-        image: "/assets/b-bag.webp",
-        imageHover: "/assets/b-bag-back.webp",
-    },
-    {
-        id: 4,
-        name: "LE COMPACT WEEKENDER BUFFALO BROWN",
-        price: "$470.00",
-        image: "/assets/Le-Compact-Weekender-Buffle-Brun-01_4f3c8d5a-25d3-4b3c-b5cf-f587983da039.webp",
-        imageHover: "/assets/Le-Compact-Weekender-Buffle-Brun-02_cb83be45-fb02-4399-8460-4f583902e185.webp",
-    }
-];
+import { weekendBagProducts as products } from "@/lib/data";
 
 export default function WeekendBags() {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -52,10 +23,10 @@ export default function WeekendBags() {
         <section id="weekend-bags" className="bg-[#efefef] py-24 px-6 md:px-12 group/section font-sans">
             <div className="mx-auto max-w-[1440px] text-center">
                 <div className="flex flex-col items-center mb-16">
-                    <h6 className="text-[12px] tracking-[0.3em] uppercase text-black/60 mb-8 font-bold">
+                    <h6 className="text-[12px] tracking-[0.3em] uppercase text-[#1c1c1c] mb-8">
                         LE WEEKEND BAG
                     </h6>
-                    <h2 className="text-[28px] md:text-[42px] tracking-[0.15em] font-medium uppercase text-black">
+                    <h2 className="text-[28px] md:text-[28px] tracking-[0.15em] uppercase text-black">
                         IDEAL FOR A WEEKEND OUTING
                     </h2>
                 </div>
@@ -110,11 +81,11 @@ export default function WeekendBags() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="text-center px-4">
-                                    <h3 className="text-[12px] md:text-[13px] tracking-[0.15em] uppercase mb-3 text-black font-medium leading-relaxed">
+                                <div className="text-center px-4 w-full">
+                                    <h3 className="text-[12px] md:text-[12px] tracking-[0.15em] uppercase mb-3 text-black  overflow-hidden whitespace-nowrap text-ellipsis">
                                         {product.name}
                                     </h3>
-                                    <p className="text-[12px] md:text-[13px] text-black/60 tracking-[0.1em]">
+                                    <p className="text-[12px] md:text-[12px] text-black/60 tracking-[0.1em]">
                                         {product.price}
                                     </p>
                                 </div>

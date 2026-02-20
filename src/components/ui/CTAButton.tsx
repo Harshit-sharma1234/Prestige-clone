@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 interface CTAButtonProps {
     text: string;
@@ -10,7 +11,7 @@ interface CTAButtonProps {
 }
 
 export default function CTAButton({ text, href, onClick, className = "" }: CTAButtonProps) {
-    const defaultClasses = "relative group/btn w-fit overflow-hidden border border-black bg-black px-[24px] py-[10.4px] text-[12px] font-[family-name:var(--font-nunito)] tracking-[0.2em] uppercase transition-colors duration-500 hover:text-black";
+    const defaultClasses = "relative group/btn w-fit overflow-hidden border border-black bg-black px-[24px] py-[10.4px] text-[13px] font-[family-name:var(--font-nunito)] tracking-[0.2em] uppercase transition-colors duration-500 hover:text-black";
 
     const content = (
         <>
@@ -25,7 +26,7 @@ export default function CTAButton({ text, href, onClick, className = "" }: CTABu
         return (
             <Link
                 href={href}
-                className={`${defaultClasses} flex items-center justify-center text-white ${className}`}
+                className={twMerge(defaultClasses, "flex items-center justify-center text-white", className)}
             >
                 {content}
             </Link>
@@ -35,7 +36,7 @@ export default function CTAButton({ text, href, onClick, className = "" }: CTABu
     return (
         <button
             onClick={onClick}
-            className={`${defaultClasses} text-white ${className}`}
+            className={twMerge(defaultClasses, "text-white", className)}
         >
             {content}
         </button>

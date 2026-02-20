@@ -1,23 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const upperItems = [
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-];
-
-const lowerItems = [
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-];
+import { marqueeUpperItems as upperItems, marqueeLowerItems as lowerItems } from "@/lib/data";
 
 function MarqueeRow({
     items,
@@ -27,7 +10,9 @@ function MarqueeRow({
     direction: "left" | "right";
 }) {
     const animationClass =
-        direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
+        direction === "left"
+            ? "animate-[marquee-left_40s_linear_infinite]"
+            : "animate-[marquee-right_40s_linear_infinite]";
 
     return (
         <div className="scrolling-content overflow-hidden whitespace-nowrap py-2">
@@ -50,9 +35,9 @@ function MarqueeRow({
                             <Image
                                 src={item.image}
                                 alt=""
-                                width={90}
-                                height={60}
-                                className="object-contain w-[60px] h-[40px] md:w-[90px] md:h-[60px]"
+                                width={150}
+                                height={100}
+                                className="object-contain w-[100px] h-[70px] md:w-[150px] md:h-[100px]"
                             />
                         </div>
                     </div>
@@ -76,9 +61,9 @@ function MarqueeRow({
                             <Image
                                 src={item.image}
                                 alt=""
-                                width={90}
-                                height={60}
-                                className="object-contain w-[60px] h-[40px] md:w-[90px] md:h-[60px]"
+                                width={150}
+                                height={100}
+                                className="object-contain w-[100px] h-[70px] md:w-[150px] md:h-[100px]"
                             />
                         </div>
                     </div>
