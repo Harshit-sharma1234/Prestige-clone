@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CTAButton from "@/components/ui/CTAButton";
 
 export default function NewLaunch() {
     return (
@@ -17,12 +18,7 @@ export default function NewLaunch() {
                 <h2 className="text-[28px] md:text-[36px] font-medium tracking-[0.1em] uppercase text-white leading-tight mb-6">
                     LE BACKPACK
                 </h2>
-                <Link
-                    href="/collections/new-arrivals"
-                    className="inline-flex items-center justify-center w-fit px-8 py-3 bg-white text-black text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-500"
-                >
-                    SHOP
-                </Link>
+                <CTAButton text="SHOP" href="/collections/new-arrivals" />
             </div>
         </section>
     );

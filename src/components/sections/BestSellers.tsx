@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import CTAButton from "@/components/ui/CTAButton";
 
 const products = {
     women: [
@@ -95,7 +96,7 @@ export default function BestSellers() {
                     </h6>
                 </div>
 
-                <div className="flex justify-center gap-8 mb-16 text-[28px] md:text-[24px] tracking-[0.1em] font-medium">
+                <div className="flex justify-center gap-8 mb-16 text-[28px] md:text-[28px] tracking-[0.1em]">
                     <button
                         onClick={() => setActiveTab("women")}
                         className={`relative pb-2 transition-colors ${activeTab === "women" ? "text-black" : "text-primary-dark"
@@ -151,14 +152,14 @@ export default function BestSellers() {
                                         src={product.image}
                                         alt={product.name}
                                         fill
-                                        className="object-contain p-8 transition-opacity duration-700 group-hover/card:opacity-0"
+                                        className="object-contain p-2 transition-opacity duration-700 group-hover/card:opacity-0"
                                     />
                                     {product.imageHover && (
                                         <Image
                                             src={product.imageHover}
                                             alt={`${product.name} back view`}
                                             fill
-                                            className="object-contain p-8 transition-opacity duration-700 opacity-0 group-hover/card:opacity-100"
+                                            className="object-contain p-2 transition-opacity duration-700 opacity-0 group-hover/card:opacity-100"
                                         />
                                     )}
                                     {/* Plus Sign Overlay */}
@@ -183,13 +184,9 @@ export default function BestSellers() {
 
                 {/* CTA Button */}
                 <div className="mt-16 flex justify-center">
-                    <button className="relative group/btn overflow-hidden border border-black px-10 py-4 text-[12px] font-bold tracking-[0.2em] uppercase transition-colors duration-500">
-                        <span className="relative z-10 text-white transition-colors duration-500 group-hover/btn:text-black">
-                            ALL WOMEN'S BAGS
-                        </span>
-                        <div className="absolute inset-0 bg-black transition-transform duration-500 ease-out group-hover/btn:translate-x-full" />
-                        <div className="absolute inset-0 bg-white -translate-x-full transition-transform duration-500 ease-out group-hover/btn:translate-x-0" />
-                    </button>
+                    <div className="mt-16 flex justify-center">
+                        <CTAButton text="ALL WOMEN'S BAGS" href="/collections/women" />
+                    </div>
                 </div>
             </div>
         </section>

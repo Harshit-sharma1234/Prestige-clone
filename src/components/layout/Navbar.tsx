@@ -6,16 +6,17 @@ import { useState, useEffect } from "react";
 import CountryDropdown from "./CountryDropdown";
 
 const navLinks = [
-    { label: "NEW ARRIVALS", href: "/collections/new-arrivals" },
+
     { label: "WOMEN", href: "/collections/women" },
     { label: "MEN", href: "/collections/men" },
-    { label: "BAGS", href: "/collections/bags" },
-    { label: "ACCESSORIES", href: "/collections/accessories" },
-    { label: "SALE", href: "/collections/sale" },
+    { label: "BLOG", href: "/collections/blog" },
+    { label: "About", href: "/collections/about" },
+
 ];
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -39,9 +40,13 @@ export default function Navbar() {
         };
     }, [isMobileMenuOpen]);
 
+    const isNavbarActive = isScrolled || isHovered;
+
     return (
         <nav
-            className={`relative w-full transition-all duration-500 ${isScrolled
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={`relative w-full transition-all duration-500 ${isNavbarActive
                 ? "bg-white/95 backdrop-blur-md shadow-sm"
                 : "bg-transparent"
                 }`}
@@ -56,18 +61,18 @@ export default function Navbar() {
                         aria-label="Toggle menu"
                     >
                         <span
-                            className={`block h-[1.5px] w-full transition-all duration-300 ${isScrolled ? "bg-[#1c1c1c]" : "bg-white"
+                            className={`block h-[1.5px] w-full transition-all duration-300 ${isNavbarActive ? "bg-[#1c1c1c]" : "bg-white"
                                 } ${isMobileMenuOpen
                                     ? "rotate-45 translate-y-[6.5px]"
                                     : ""
                                 }`}
                         />
                         <span
-                            className={`block h-[1.5px] w-full transition-all duration-300 ${isScrolled ? "bg-[#1c1c1c]" : "bg-white"
+                            className={`block h-[1.5px] w-full transition-all duration-300 ${isNavbarActive ? "bg-[#1c1c1c]" : "bg-white"
                                 } ${isMobileMenuOpen ? "opacity-0" : ""}`}
                         />
                         <span
-                            className={`block h-[1.5px] w-full transition-all duration-300 ${isScrolled ? "bg-[#1c1c1c]" : "bg-white"
+                            className={`block h-[1.5px] w-full transition-all duration-300 ${isNavbarActive ? "bg-[#1c1c1c]" : "bg-white"
                                 } ${isMobileMenuOpen
                                     ? "-rotate-45 -translate-y-[6.5px]"
                                     : ""
@@ -76,17 +81,17 @@ export default function Navbar() {
                     </button>
 
                     {/* Desktop Nav Links */}
-                    <div className="hidden md:flex items-center gap-8">
+                    <div className="hidden md:flex items-center gap-10">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.label}
                                 href={link.href}
-                                className={`text-[11px] font-bold tracking-[0.15em] uppercase transition-opacity hover:opacity-60 ${isScrolled ? "text-[#1c1c1c]" : "text-white"
+
+                                className={`text-[12px] tracking-[0.15em] uppercase transition-opacity hover:opacity-60 ${isNavbarActive ? "text-[#1c1c1c]" : "text-white"
                                     } ${link.label === "SALE"
                                         ? "text-red-500"
                                         : ""
-                                    }`}
-                            >
+                                    }`}                            >
                                 {link.label}
                             </Link>
                         ))}
@@ -103,7 +108,7 @@ export default function Navbar() {
                         alt="Logo"
                         width={120}
                         height={36}
-                        className={`transition-all duration-300 ${isScrolled ? "" : "brightness-0 invert"
+                        className={`transition-all duration-300 ${isNavbarActive ? "" : "brightness-0 invert"
                             }`}
                         priority
                     />
@@ -111,35 +116,13 @@ export default function Navbar() {
 
                 {/* Right: Icons */}
                 <div
-                    className={`flex items-center gap-4 md:gap-6 ${isScrolled ? "text-[#1c1c1c]" : "text-white"
+                    className={`flex items-center gap-4 md:gap-6 ${isNavbarActive ? "text-[#1c1c1c]" : "text-white"
                         }`}
                 >
                     {/* Country Dropdown - Desktop */}
                     <div className="hidden md:block">
                         <CountryDropdown />
                     </div>
-
-                    {/* Search Icon */}
-                    <button
-                        onClick={() => setIsSearchOpen(!isSearchOpen)}
-                        className="hover:opacity-60 transition-opacity"
-                        aria-label="Search"
-                    >
-                        <svg
-                            width="18"
-                            height="18"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <circle cx="11" cy="11" r="8" />
-                            <path d="m21 21-4.35-4.35" />
-                        </svg>
-                    </button>
-
                     {/* Account Icon */}
                     <Link
                         href="/account"
@@ -147,12 +130,12 @@ export default function Navbar() {
                         aria-label="Account"
                     >
                         <svg
-                            width="18"
-                            height="18"
+                            width="24"
+                            height="24"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
-                            strokeWidth="1.5"
+                            strokeWidth="1"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                         >
@@ -161,6 +144,29 @@ export default function Navbar() {
                         </svg>
                     </Link>
 
+                    {/* Search Icon */}
+                    <button
+                        onClick={() => setIsSearchOpen(!isSearchOpen)}
+                        className="hover:opacity-60 transition-opacity"
+                        aria-label="Search"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.35-4.35" />
+                        </svg>
+                    </button>
+
+
+
                     {/* Cart Icon */}
                     <Link
                         href="/cart"
@@ -168,12 +174,12 @@ export default function Navbar() {
                         aria-label="Cart"
                     >
                         <svg
-                            width="18"
-                            height="18"
+                            width="24"
+                            height="24"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
-                            strokeWidth="1.5"
+                            strokeWidth="1"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                         >
@@ -198,7 +204,7 @@ export default function Navbar() {
                         <input
                             type="text"
                             placeholder="Search for products..."
-                            className={`w-full border-b py-3 text-[13px] tracking-[0.05em] outline-none bg-transparent placeholder:uppercase placeholder:tracking-[0.15em] placeholder:text-[11px] ${isScrolled
+                            className={`w-full border-b py-3 text-[13px] tracking-[0.05em] outline-none bg-transparent placeholder:uppercase placeholder:tracking-[0.15em] placeholder:text-[11px] ${isNavbarActive
                                 ? "border-[#1c1c1c]/20 text-[#1c1c1c] placeholder:text-[#1c1c1c]/40"
                                 : "border-white/30 text-white placeholder:text-white/50"
                                 }`}

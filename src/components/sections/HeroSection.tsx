@@ -111,7 +111,7 @@ export default function HeroSection() {
                     <span className="mb-6 inline-block text-[12px] md:text-[14px] font-bold tracking-[0.4em] uppercase opacity-90 transition-all duration-700">
                         {currentSlide.label}
                     </span>
-                    <h1 className="mb-12 text-[40px] md:text-[64px] font-medium tracking-[0.05em] uppercase leading-[1.1] md:leading-[1.1]">
+                    <h1 style={{ wordSpacing: "10px" }} className="mb-12 text-[28px] md:text-[28px] font-normal tracking-[0.6em] uppercase leading-[1.1] md:leading-[1.1]">
                         {currentSlide.title.split(' & ').map((part, i, arr) => (
                             <span key={i}>
                                 {part}
@@ -125,12 +125,13 @@ export default function HeroSection() {
                             <Link
                                 key={i}
                                 href={btn.href}
-                                className={`flex-1 md:flex-none max-w-[160px] md:min-w-[200px] px-4 md:px-12 py-4 text-[10px] md:text-[13px] uppercase tracking-[0.2em] transition-transform hover:scale-105 active:scale-95 ${btn.text === "MEN"
-                                    ? "bg-[#1c1c1c] text-white hover:bg-black"
-                                    : "bg-white text-black"
+                                className={`group relative flex-1 md:flex-none max-w-[160px] md:min-w-[200px] px-[28.4px] py-[10px] text-[13px] font-[family-name:var(--font-nunito)] uppercase tracking-[0.2em] overflow-hidden border transition-colors duration-300 ease-in whitespace-nowrap hover:text-white ${btn.text === "MEN"
+                                    ? "text-white border-transparent hover:border-black"
+                                    : "text-black border-white"
                                     }`}
                             >
-                                {btn.text}
+                                <span className={`absolute inset-0 w-full h-full transition-transform duration-300 ease-in group-hover:translate-x-full ${btn.text === "MEN" ? "bg-[#1c1c1c]" : "bg-white"}`}></span>
+                                <span className="relative z-10">{btn.text}</span>
                             </Link>
                         ))}
                     </div>

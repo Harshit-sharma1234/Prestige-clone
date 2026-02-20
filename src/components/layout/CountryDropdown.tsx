@@ -42,7 +42,7 @@ export default function CountryDropdown() {
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-3 py-2 text-[11px] font-bold tracking-[0.1em] hover:opacity-70 transition-opacity"
+                className="flex items-center gap-3 py-2 text-[11px] tracking-[0.1em] hover:opacity-70 transition-opacity"
             >
                 <div className="relative w-[18px] h-[12px] overflow-hidden border border-black/5">
                     <img
@@ -51,11 +51,11 @@ export default function CountryDropdown() {
                         className="w-full h-full object-cover"
                     />
                 </div>
-                <span className="opacity-70">{selected.currency}</span>
+                <span className="">{selected.currency}</span>
                 <svg
                     className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                     width="10"
-                    height="6"
+                    height="10"
                     viewBox="0 0 10 6"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ export default function CountryDropdown() {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <span className="text-[13px] font-medium text-[#444]">
+                                <span className="text-[14px] font-[family-name:var(--font-nunito)] text-[#1C1C1CA6]">
                                     {country.name} ({country.currency})
                                 </span>
                             </button>
