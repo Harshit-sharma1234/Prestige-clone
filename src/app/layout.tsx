@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Sans, Nunito } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -26,10 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSans.variable} ${nunito.variable} antialiased font-sans`}
+        className={`${instrumentSans.variable} ${nunito.variable} antialiased font-sans flex flex-col min-h-screen`}
       >
         <Header />
-        {children}
+        <div className="flex-1 w-full bg-white">{children}</div>
+        <Footer />
       </body>
     </html>
   );
