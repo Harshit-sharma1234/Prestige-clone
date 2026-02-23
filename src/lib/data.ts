@@ -66,19 +66,19 @@ export const weekendBagProducts = [
 ];
 
 export const marqueeUpperItems = [
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
-    { text: "New: Le Sac Baguette", image: "/assets/brown-f.webp", href: "/products/le-sac-baguette" },
+    { text: "New: Le Sac Baguette", image: "/assets/marcqee.avif", href: "/products/le-sac-baguette" },
+    { text: "New: Le Sac Baguette", image: "/assets/marcqee.avif", href: "/products/le-sac-baguette" },
+    { text: "New: Le Sac Baguette", image: "/assets/marcqee.avif", href: "/products/le-sac-baguette" },
+    { text: "New: Le Sac Baguette", image: "/assets/marcqee.avif", href: "/products/le-sac-baguette" },
+    { text: "New: Le Sac Baguette", image: "/assets/marcqee.avif", href: "/products/le-sac-baguette" },
+    { text: "New: Le Sac Baguette", image: "/assets/marcqee.avif", href: "/products/le-sac-baguette" },
 ];
 
 export const marqueeLowerItems = [
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
-    { text: "Shop New Arrivals", image: "/assets/black-f.webp", href: "/collections/new-arrivals" },
+    { text: "Shop New Arrivals", image: "/assets/marcqee2.jpg", href: "/collections/new-arrivals" },
+    { text: "Shop New Arrivals", image: "/assets/marcqee2.jpg", href: "/collections/new-arrivals" },
+    { text: "Shop New Arrivals", image: "/assets/marcqee2.jpg", href: "/collections/new-arrivals" },
+    { text: "Shop New Arrivals", image: "/assets/marcqee2.jpg", href: "/collections/new-arrivals" },
+    { text: "Shop New Arrivals", image: "/assets/marcqee2.jpg", href: "/collections/new-arrivals" },
+    { text: "Shop New Arrivals", image: "/assets/marcqee2.jpg", href: "/collections/new-arrivals" },
 ];

@@ -3,7 +3,7 @@
 :root {
   --primary-white: #ffffff;
   --primary-black: #1c1c1c;
-  --primary-dark: #111111;
+  --primary-dark: #4a4a4a;
 
   --background: var(--primary-white);
   --foreground: var(--primary-black);

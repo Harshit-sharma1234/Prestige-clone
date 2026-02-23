@@ -38,9 +38,9 @@ export default function HeroSection() {
     const currentSlide = slides[currentIndex];
 
     return (
-        <section className="relative h-screen w-full overflow-hidden bg-black">
+        <section className="relative h-screen w-full bg-black">
             {/* Background Layer */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 overflow-hidden">
                 {slides.map((slide, index) => (
                     <div
                         key={index}
@@ -109,6 +109,21 @@ export default function HeroSection() {
                 </div>
             </div>
 
+            {/* Scroll Down Button */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-[100]">
+                <button
+                    onClick={() => {
+                        const hero = document.querySelector("#best-sellers") ?? document.querySelector("section + section");
+                        hero?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    aria-label="Scroll down"
+                    className="w-[50px] h-[50px] rounded-full bg-white shadow-md flex items-center justify-center hover:scale-105 transition-transform duration-300"
+                >
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 7L10 13L16 7" stroke="#1c1c1c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </button>
+            </div>
 
         </section>
     );

@@ -6,7 +6,7 @@ export default function OurAim() {
         <section className="bg-[#efefef] py-16 md:py-20 px-[20px] md:px-[48px] font-sans">
             <div className="mx-auto w-full max-w-[1260px]">
                 {/* Top Content - Icon + Heading + Links */}
-                <div className="flex flex-col items-center text-center mb-12 md:mb-14">
+                <div className="flex flex-col items-center text-center mb-12 md:mb-20">
                     {/* Bag Icon */}
                     <div className="mb-6">
                         <Image
@@ -14,7 +14,7 @@ export default function OurAim() {
                             alt="Bag icon"
                             width={120}
                             height={120}
-                            className="opacity-40"
+
                         />
                     </div>
 

@@ -5,11 +5,15 @@ import Marquee from "@/components/sections/Marquee";
 import OurAim from "@/components/sections/OurAim";
 import WeekendBags from "@/components/sections/WeekendBags";
 import VideoSection from "@/components/sections/VideoSection";
+import QuoteSection from "@/components/sections/QuoteSection";
 import ShopTheLook from "@/components/sections/ShopTheLook";
+import OurSelection from "@/components/sections/OurSelection";
+import MaterialSection from "@/components/sections/MaterialSection";
 import CountdownSection from "@/components/sections/CountdownSection";
 import CollaborationSection from "@/components/sections/CollaborationSection";
 import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
 import ScrollSection from "@/components/sections/ScrollSection";
+import BlogSection from "@/components/sections/BlogSection";
 
 export default function Home() {
     return (
@@ -17,16 +21,20 @@ export default function Home() {
             <HeroSection />
             <BestSellers />
             <NewLaunch />
-
             <OurAim />
             <Marquee />
             <WeekendBags />
             <VideoSection />
+
             <ShopTheLook />
             <CountdownSection />
             <CollaborationSection />
             <BeforeAfterSection />
             <ScrollSection />
+            <BlogSection />
+            <OurSelection />
+            <MaterialSection />
+            <QuoteSection />
         </main>
     );
 }
