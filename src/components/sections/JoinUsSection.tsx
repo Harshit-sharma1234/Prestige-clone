@@ -65,7 +65,7 @@ export default function JoinUsSection() {
                             <h3 className="text-[11px] md:text-[12px] tracking-[0.15em] uppercase text-[#1c1c1c] mb-4 font-normal">
                                 {feature.title}
                             </h3>
-                            <p className="text-[13px] text-black/60 max-w-[250px] leading-relaxed">
+                            <p className="text-[14px] text-[#1C1C1C] max-w-[250px] leading-relaxed font-[family-name:var(--font-nunito)]">
                                 {feature.description}
                             </p>
                         </div>

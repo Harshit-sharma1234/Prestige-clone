@@ -13,20 +13,20 @@ export default function ScrollSection() {
         offset: ["start start", "end end"]
     });
 
-    // Content 1 Animation: Text scrolls UPWARDS and out (Tightened)
-    const textY1 = useTransform(scrollYProgress, [0, 0.4], ["0%", "-160%"]);
-    const textOpacity1 = useTransform(scrollYProgress, [0, 0.35, 0.4], [1, 1, 0]);
+    // Content 1 Animation: Text scrolls UPWARDS and out
+    const textY1 = useTransform(scrollYProgress, [0, 0.4], ["0%", "-20%"]);
+    const textOpacity1 = useTransform(scrollYProgress, [0, 0.1, 0.4], [1, 1, 0]);
     const imgOpacity1 = useTransform(scrollYProgress, [0, 0.35, 0.45], [1, 1, 0]);
     const imgScale1 = useTransform(scrollYProgress, [0, 0.35, 0.45], [1, 1, 1.1]);
 
-    // Content 2 Animation: Text enters from BOTTOM (No gap)
-    const textY2 = useTransform(scrollYProgress, [0.4, 0.7], ["160%", "0%"]);
+    // Content 2 Animation: Text enters from BOTTOM
+    const textY2 = useTransform(scrollYProgress, [0.4, 0.7], ["20%", "0%"]);
     const textOpacity2 = useTransform(scrollYProgress, [0.4, 0.5, 1], [0, 1, 1]);
     const imgOpacity2 = useTransform(scrollYProgress, [0.4, 0.5, 1], [0, 1, 1]);
     const imgScale2 = useTransform(scrollYProgress, [0.4, 0.5, 1], [0.9, 1, 1]);
 
     return (
-        <section ref={containerRef} className="relative h-[300vh] bg-[#efefef]">
+        <section ref={containerRef} className="relative h-[140vh] bg-[#efefef]">
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
                 {/* Background */}
                 <div className="absolute inset-0">

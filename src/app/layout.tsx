@@ -3,6 +3,7 @@ import { Instrument_Sans, Nunito } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import NewsletterPopup from "@/components/ui/NewsletterPopup";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Header />
         <div className="flex-1 w-full bg-white">{children}</div>
         <Footer />
+        <NewsletterPopup />
       </body>
     </html>
   );

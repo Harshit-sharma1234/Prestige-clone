@@ -10,8 +10,38 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function BeforeAfterSection() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [position, setPosition] = useState(50);
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [position, setPosition] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    // Animate slider from left to center on scroll
+    useEffect(() => {
+        if (!sectionRef.current || hasAnimated) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setHasAnimated(true);
+                    let start: number | null = null;
+                    const duration = 1200;
+                    const animate = (timestamp: number) => {
+                        if (!start) start = timestamp;
+                        const elapsed = timestamp - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // easeOutCubic
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        setPosition(eased * 50);
+                        if (progress < 1) requestAnimationFrame(animate);
+                    };
+                    requestAnimationFrame(animate);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.3 }
+        );
+        observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, [hasAnimated]);
 
     const updatePosition = (clientX: number) => {
         if (!containerRef.current) return;
@@ -46,7 +76,7 @@ export default function BeforeAfterSection() {
     }, [isDragging]);
 
     return (
-        <section className="bg-[#efefef] pb-20 px-6 font-sans">
+        <section ref={sectionRef} className="bg-[#efefef] pb-20 px-6 font-sans">
             <div className="mx-auto max-w-[1440px]">
                 <div className="text-center mb-12">
                     <p className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] uppercase text-black/60 mb-4">LE DALIA</p>

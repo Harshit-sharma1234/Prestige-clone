@@ -79,10 +79,10 @@ export default function HeroSection() {
                             : "translate-y-0 opacity-100"
                         }`}
                 >
-                    <span className="mb-6 inline-block text-[12px] md:text-[14px] font-bold tracking-[0.4em] uppercase opacity-90 transition-all duration-700">
+                    <span className="mb-6 inline-block text-[12px] md:text-[14px] font-bold tracking-[0.2em] uppercase opacity-90 transition-all duration-700">
                         {currentSlide.label}
                     </span>
-                    <h1 style={{ wordSpacing: "10px" }} className="mb-12 text-[28px] md:text-[28px] font-normal tracking-[0.6em] uppercase leading-[1.1] md:leading-[1.1]">
+                    <h1 className="mb-12 text-[28px] md:text-[28px] font-normal tracking-[0.2em] uppercase leading-[1.1] md:leading-[1.1]">
                         {currentSlide.title.split(' & ').map((part, i, arr) => (
                             <span key={i}>
                                 {part}
@@ -96,7 +96,7 @@ export default function HeroSection() {
                             <Link
                                 key={i}
                                 href={btn.href}
-                                className={`group relative flex-1 md:flex-none max-w-[160px] md:min-w-[200px] px-[28.4px] py-[10px] text-[13px] font-cta uppercase tracking-[0.2em] overflow-hidden border transition-colors duration-300 ease-in whitespace-nowrap hover:text-white ${btn.text === "MEN"
+                                className={`group relative md:flex-none px-[20px] py-[10px] text-[13px] font-cta uppercase tracking-[0.2em] overflow-hidden border transition-colors duration-300 ease-in whitespace-nowrap hover:text-white ${btn.text === "MEN"
                                     ? "text-white border-transparent hover:border-black"
                                     : "text-black border-white"
                                     }`}

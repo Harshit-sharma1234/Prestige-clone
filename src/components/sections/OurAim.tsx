@@ -1,12 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function OurAim() {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+
     return (
         <section className="bg-[#efefef] py-16 md:py-20 px-[20px] md:px-[48px] font-sans">
-            <div className="mx-auto w-full max-w-[1260px]">
+            <div ref={sectionRef} className="mx-auto w-full max-w-[1260px]">
                 {/* Top Content - Icon + Heading + Links */}
-                <div className="flex flex-col items-center text-center mb-12 md:mb-20">
+                <motion.div
+                    className="flex flex-col items-center text-center mb-12 md:mb-20"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
                     {/* Bag Icon */}
                     <div className="mb-6">
                         <Image
@@ -41,62 +53,81 @@ export default function OurAim() {
                             Commitments
                         </Link>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Image Grid - Asymmetric 2 column layout */}
                 <div className="flex flex-col md:flex-row gap-6 md:gap-[30px] justify-center">
                     {/* Left - Women (larger, ~60% width) */}
-                    <Link
-                        href="/collections/women"
-                        className="relative w-full md:w-[830px] shrink-0 h-[500px] md:h-[610px] overflow-hidden group"
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                        className="w-full md:w-[830px] shrink-0"
                     >
-                        <Image
-                            src="/assets/women-our-aim.webp"
-                            alt="Women collection"
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
-                        <span className="absolute inset-0 flex items-center justify-center text-white text-[24px] md:text-[32px] tracking-[0.15em] uppercase">
-                            WOMEN
-                        </span>
-                    </Link>
+                        <Link
+                            href="/collections/women"
+                            className="relative block h-[500px] md:h-[610px] overflow-hidden group"
+                        >
+                            <Image
+                                src="/assets/women-our-aim.webp"
+                                alt="Women collection"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
+                            <span className="absolute inset-0 flex items-center justify-center text-white text-[24px] md:text-[32px] tracking-[0.15em] uppercase">
+                                WOMEN
+                            </span>
+                        </Link>
+                    </motion.div>
 
                     {/* Right Column - Men + Accessories stacked */}
                     <div className="flex flex-col gap-6 md:gap-[30px] w-full md:w-[400px] shrink-0">
                         {/* Top Right - Men */}
-                        <Link
-                            href="/collections/men"
-                            className="relative w-full h-[300px] md:h-[290px] overflow-hidden group"
+                        <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                         >
-                            <Image
-                                src="/assets/men-our-aim.webp"
-                                alt="Men collection"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
-                            <span className="absolute inset-0 flex items-center justify-center text-white text-[18px] md:text-[22px] tracking-[0.25em] uppercase font-medium">
-                                MEN
-                            </span>
-                        </Link>
+                            <Link
+                                href="/collections/men"
+                                className="relative block w-full h-[300px] md:h-[290px] overflow-hidden group"
+                            >
+                                <Image
+                                    src="/assets/men-our-aim.webp"
+                                    alt="Men collection"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
+                                <span className="absolute inset-0 flex items-center justify-center text-white text-[18px] md:text-[22px] tracking-[0.25em] uppercase font-medium">
+                                    MEN
+                                </span>
+                            </Link>
+                        </motion.div>
 
                         {/* Bottom Right - Accessories */}
-                        <Link
-                            href="/collections/accessories"
-                            className="relative w-full h-[300px] md:h-[290px] overflow-hidden group"
+                        <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                         >
-                            <Image
-                                src="/assets/accesories-ouraim.webp"
-                                alt="Accessories"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
-                            <span className="absolute inset-0 flex items-center justify-center text-white text-[16px] md:text-[18px] tracking-[0.25em] uppercase font-medium">
-                                ACCESSORIES
-                            </span>
-                        </Link>
+                            <Link
+                                href="/collections/accessories"
+                                className="relative block w-full h-[300px] md:h-[290px] overflow-hidden group"
+                            >
+                                <Image
+                                    src="/assets/accesories-ouraim.webp"
+                                    alt="Accessories"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
+                                <span className="absolute inset-0 flex items-center justify-center text-white text-[16px] md:text-[18px] tracking-[0.25em] uppercase font-medium">
+                                    ACCESSORIES
+                                </span>
+                            </Link>
+                        </motion.div>
                     </div>
                 </div>
             </div>

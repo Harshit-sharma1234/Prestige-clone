@@ -79,7 +79,7 @@ export default function Navbar() {
                                     >
                                         {link.label}
                                     </Link>
-                                    <div className={`absolute -bottom-[18px] left-0 right-0 h-[2px] bg-[#1c1c1c] transition-all duration-300 ${isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}`} />
+                                    <div className={`absolute -bottom-[18px] left-0 right-0 h-[2px] bg-[#1c1c1c] transition-all duration-300 origin-left ${isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}`} />
                                 </div>
                             );
                         })}
@@ -122,7 +122,7 @@ export default function Navbar() {
                 data={megaMenuData}
                 onClose={closeMegaMenu}
                 onMouseEnter={clearMenuTimeout}
-                onMouseLeave={() => { }}
+                onMouseLeave={closeMegaMenu}
             />
 
             {/* Search Bar */}

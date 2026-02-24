@@ -138,7 +138,7 @@ export const scrollSteps: ScrollStep[] = [
         step: "# 1",
         title: "THE DESIGN",
         description: "At Léo et Violette, we create our bags with you in mind. All our products are imagined and designed in Paris, in our offices on rue Sainte-Anne. Most of the time, an idea for a model comes from a need that you have expressed to us through the various feedbacks we collect throughout the year.",
-        image: "/assets/commitments_first.webp",
+        image: "/assets/Multiple_media_with_text_-_Portrait_-_home_1.webp",
         link: "/pages/design"
     },
     {
