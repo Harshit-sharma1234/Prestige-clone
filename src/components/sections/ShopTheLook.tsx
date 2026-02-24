@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Link from "next/link";
+import CTAButton from "@/components/ui/CTAButton";
 
 type Product = { id: string; x: number; y: number; badge?: string; name: string; price: string; image: string; imageHover: string; href: string };
 type Look = { id: number; image: string; products: Product[] };
@@ -54,15 +54,20 @@ export default function ShopTheLook() {
                     {/* Look Image + Hotspots */}
                     <div className="relative w-full md:w-[550px] h-[550px] shrink-0">
                         <Image src={look.image} alt="Shop the look" fill className="object-cover" />
-                        {look.products.map(p => (
-                            <button
-                                key={p.id}
-                                onMouseEnter={() => setActiveId(p.id)}
-                                onClick={() => setActiveId(p.id)}
-                                className={`absolute w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all ${activeId === p.id ? "bg-white/30 scale-110" : "bg-white/10 hover:bg-white/20"}`}
-                                style={{ top: `${p.y}%`, left: `${p.x}%` }}
-                            ><div className="w-3 h-3 bg-white rounded-full shadow-sm" /></button>
-                        ))}
+                        {look.products.map(p => {
+                            const isActive = activeId === p.id;
+                            return (
+                                <button
+                                    key={p.id}
+                                    onMouseEnter={() => setActiveId(p.id)}
+                                    onClick={() => setActiveId(p.id)}
+                                    className={`absolute w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all ${isActive ? "bg-white/30 scale-110" : "bg-white/10 hover:bg-white/20"}`}
+                                    style={{ top: `${p.y}%`, left: `${p.x}%` }}
+                                >
+                                    <div className="w-3 h-3 bg-white rounded-full shadow-sm" />
+                                </button>
+                            );
+                        })}
                     </div>
 
                     {/* Product Details */}
@@ -74,7 +79,7 @@ export default function ShopTheLook() {
                         </div>
                         <h3 className="text-[12px] tracking-[0.15em] uppercase text-[#1c1c1c] mb-2 font-medium">{item.name}</h3>
                         <p className="text-[12px] text-black/60 tracking-[0.1em] mb-8">{item.price}</p>
-                        <Link href={item.href} className="bg-[#1c1c1c] text-white text-[10px] tracking-[0.2em] py-4 px-10 uppercase transition-colors hover:bg-black/80">VIEW PRODUCT</Link>
+                        <CTAButton text="VIEW PRODUCT" href={item.href} className="mt-4" />
 
                         {/* Pagination */}
                         <div className="flex gap-2 mt-8">

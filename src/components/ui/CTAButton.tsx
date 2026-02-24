@@ -21,14 +21,20 @@ export default function CTAButton({
 }: CTAButtonProps) {
     const isDark = variant === "dark";
 
-    const cls = [
-        "relative group/btn w-fit overflow-hidden border",
-        "py-[10px] px-[28px] text-[13px] font-medium tracking-[0.2em] uppercase font-nunito",
-        "flex items-center justify-center transition-colors duration-500 ease-in-out",
-        animate ? "bg-transparent" : (isDark ? "bg-[#1c1c1c] border-[#1c1c1c]" : "bg-white border-white"),
-        animate ? (isDark ? "text-white border-[#1c1c1c] hover:text-[#1c1c1c]" : "text-[#1c1c1c] border-white hover:text-white") : (isDark ? "text-white" : "text-[#1c1c1c]"),
-        className,
-    ].join(" ");
+    const baseClasses = "relative group/btn w-fit overflow-hidden border py-[10px] px-[28px] text-[13px] font-medium tracking-[0.2em] uppercase font-nunito flex items-center justify-center transition-colors duration-500 ease-in-out";
+
+    let variantClasses = "";
+    if (animate) {
+        variantClasses = isDark
+            ? "bg-transparent text-white border-[#1c1c1c] hover:text-[#1c1c1c]"
+            : "bg-transparent text-[#1c1c1c] border-white hover:text-white";
+    } else {
+        variantClasses = isDark
+            ? "bg-[#1c1c1c] border-[#1c1c1c] text-white"
+            : "bg-white border-white text-[#1c1c1c]";
+    }
+
+    const cls = `${baseClasses} ${variantClasses} ${className}`.trim();
 
     const inner = (
         <>

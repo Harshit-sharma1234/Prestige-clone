@@ -4,6 +4,17 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
 
+const formatNumber = (num: number) => num.toString().padStart(2, '0');
+
+const TimeUnit = ({ value, label }: { value: number, label: string }) => (
+    <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
+        <span className="text-[44px] md:text-[32px] font-normal leading-none mb-3">{formatNumber(value)}</span>
+        <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/90">{label}</span>
+    </div>
+);
+
+const Colon = () => <span className="text-[20px] md:text-[24px] font-light mt-2 md:mt-3 opacity-60">:</span>;
+
 export default function CountdownSection() {
     const [timeLeft, setTimeLeft] = useState({
         days: 99,
@@ -15,35 +26,21 @@ export default function CountdownSection() {
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeLeft(prev => {
-                let { days, hours, minutes, seconds } = prev;
+                const totalSeconds = prev.days * 86400 + prev.hours * 3600 + prev.minutes * 60 + prev.seconds;
+                if (totalSeconds <= 0) return prev;
 
-                if (seconds > 0) {
-                    seconds--;
-                } else {
-                    seconds = 59;
-                    if (minutes > 0) {
-                        minutes--;
-                    } else {
-                        minutes = 59;
-                        if (hours > 0) {
-                            hours--;
-                        } else {
-                            hours = 23;
-                            if (days > 0) {
-                                days--;
-                            }
-                        }
-                    }
-                }
-
-                return { days, hours, minutes, seconds };
+                const nextTotal = totalSeconds - 1;
+                return {
+                    days: Math.floor(nextTotal / 86400),
+                    hours: Math.floor((nextTotal % 86400) / 3600),
+                    minutes: Math.floor((nextTotal % 3600) / 60),
+                    seconds: nextTotal % 60
+                };
             });
         }, 1000);
 
         return () => clearInterval(timer);
     }, []);
-
-    const formatNumber = (num: number) => num.toString().padStart(2, '0');
 
     return (
         <section className="relative w-full h-[600px] md:h-[700px] font-nunito overflow-hidden">
@@ -73,33 +70,20 @@ export default function CountdownSection() {
                         <CTAButton
                             text="SHOP NOW"
                             href="/collections/sale"
-                            variant="dark"
-                            animate={false}
-                            className="bg-[#1c1c1c] text-white border-none mt-[32px] hover:opacity-80 transition-opacity"
+                            variant="light"
+                            className="bg-white !text-[#1c1c1c] border-white mt-[32px] hover:!text-white group-hover/btn:bg-[#1c1c1c]"
                         />
                     </div>
 
                     {/* Right Side: Countdown Timer */}
-                    <div className="flex items-start justify-center gap-1  text-white text-center mt-8 md:mt-0">
-                        <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
-                            <span className="text-[44px] md:text-[32px] font-normal leading-none mb-3">{formatNumber(timeLeft.days)}</span>
-                            <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/90">DAY</span>
-                        </div>
-                        <span className="text-[20px] md:text-[24px] font-light mt-2 md:mt-3 opacity-60">:</span>
-                        <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
-                            <span className="text-[44px] md:text-[32px] font-normal leading-none mb-3">{formatNumber(timeLeft.hours)}</span>
-                            <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/90">HOURS</span>
-                        </div>
-                        <span className="text-[20px] md:text-[24px] font-light mt-2 md:mt-3 opacity-60">:</span>
-                        <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
-                            <span className="text-[44px] md:text-[32px] font-normal leading-none mb-3">{formatNumber(timeLeft.minutes)}</span>
-                            <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/90">MIN</span>
-                        </div>
-                        <span className="text-[20px] md:text-[24px] font-light mt-2 md:mt-3 opacity-60">:</span>
-                        <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
-                            <span className="text-[32px] md:text-32px] font-normal leading-none mb-3">{formatNumber(timeLeft.seconds)}</span>
-                            <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/90">SEC</span>
-                        </div>
+                    <div className="flex items-start justify-center gap-1 text-white text-center mt-8 md:mt-0">
+                        <TimeUnit value={timeLeft.days} label="DAY" />
+                        <Colon />
+                        <TimeUnit value={timeLeft.hours} label="HOURS" />
+                        <Colon />
+                        <TimeUnit value={timeLeft.minutes} label="MIN" />
+                        <Colon />
+                        <TimeUnit value={timeLeft.seconds} label="SEC" />
                     </div>
 
                 </div>

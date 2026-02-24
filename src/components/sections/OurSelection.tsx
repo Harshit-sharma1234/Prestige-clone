@@ -3,128 +3,87 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import AddToCartButton from "@/components/ui/AddToCartButton";
+
+const images = [
+    "/assets/darkpeach-1.webp",
+    "/assets/dark-peachbag2.webp",
+    "/assets/darkpeach-3.webp",
+    "/assets/darkpeach-4.webp",
+    "/assets/darkpeach-5.webp",
+];
 
 export default function OurSelection() {
     const [quantity, setQuantity] = useState(1);
-    const [currentImageIndex, setCurrentImageIndex] = useState(4); // Start on the open wallet shot
-
-    // Using the newly uploaded darkpeach assets based on the user screenshot
-    const images = [
-        "/assets/darkpeach-1.webp",
-        "/assets/dark-peachbag2.webp",
-        "/assets/darkpeach-3.webp",
-        "/assets/darkpeach-4.webp",
-        "/assets/darkpeach-5.webp",
-    ];
-
-    // We'll use the 5th image (the open wallet shot from the user's reference)
-    const displayImage = "/assets/darkpeach-5.webp";
+    const [currentImageIndex, setCurrentImageIndex] = useState(4);
 
     return (
-        <section className="bg-[#efefef] py-24 font-sans border-t border-black/10">
+        <section className="bg-[#f9f9f9] py-24 font-sans border-t border-black/5">
             <div className="max-w-[1440px] mx-auto px-6 md:px-[120px]">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <h6 className="text-[10px] tracking-[0.2em] uppercase text-black/60 mb-4 font-medium">
-                        OUR SELECTION
-                    </h6>
-                    <h2 className="text-[24px] md:text-[28px] tracking-[0.15em] font-normal uppercase text-[#1c1c1c]">
-                        PRODUCT OF THE WEEK
-                    </h2>
+                <div className="text-center mb-24">
+                    <p className="text-[10px] md:text-[12px] tracking-[0.3em] uppercase text-black/50 mb-6 font-sans">OUR SELECTION</p>
+                    <h2 className="text-[28px] tracking-[0.2em] font-normal uppercase text-[#1c1c1c] font-sans">PRODUCT OF THE WEEK</h2>
                 </div>
 
-                {/* Content Split */}
-                <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-center md:items-start">
-
-                    {/* Left: Image Carousel */}
-                    <div className="w-full md:w-1/2 flex flex-col items-center">
-                        <div className="w-full aspect-square relative bg-[#f5f5f5] overflow-hidden mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 items-center">
+                    {/* Media */}
+                    <div className="flex flex-col items-center">
+                        <div className="w-full aspect-[4/3] relative overflow-hidden mb-12">
                             <div
-                                className="w-full h-full flex transition-transform duration-500 ease-in-out"
+                                className="flex h-full transition-transform duration-700 ease-in-out"
                                 style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                             >
                                 {images.map((img, i) => (
-                                    <div key={i} className="relative w-full h-full shrink-0">
-                                        <Image
-                                            src={img}
-                                            alt={`Le Continental Camel Liégé preview ${i + 1}`}
-                                            fill
-                                            className="object-cover"
-                                            priority={i === 4}
-                                        />
+                                    <div key={i} className="relative w-full h-full shrink-0 flex items-center justify-center">
+                                        <div className="relative w-[80%] h-[80%]">
+                                            <Image src={img} alt="Product view" fill className="object-contain" priority={i === 4} />
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Dot Indicators */}
-                        <div className="flex gap-4">
+                        <div className="flex gap-3">
                             {images.map((_, i) => (
                                 <button
                                     key={i}
                                     onClick={() => setCurrentImageIndex(i)}
-                                    aria-label={`Go to slide ${i + 1}`}
-                                    className={`w-2.5 h-2.5 rounded-full transition-colors ${currentImageIndex === i ? "bg-[#1c1c1c]" : "bg-black/20 hover:bg-black/40"
-                                        }`}
+                                    className={`w-1.5 h-1.5 rounded-full transition-all ${currentImageIndex === i ? "bg-[#1c1c1c]" : "bg-black/20 hover:bg-black/40"}`}
                                 />
                             ))}
                         </div>
                     </div>
 
-                    {/* Right: Product Details */}
-                    <div className="w-full md:w-1/2 flex flex-col pt-8">
-                        <span className="text-[9px] tracking-[0.2em] text-black/50 uppercase mb-4">
-                            NEW
-                        </span>
+                    {/* Info */}
+                    <div className="flex flex-col items-start max-w-[480px]">
+                        <span className="text-[9px] tracking-[0.2em] text-black/40 uppercase mb-5">NEW</span>
+                        <h3 className="text-[22px] tracking-[0.15em] text-[#1c1c1c] uppercase font-normal mb-4 leading-tight">LE CONTINENTAL CAMEL LIÉGÉ</h3>
+                        <p className="text-[18px] text-black/65 font-sans mb-6 font-light tracking-wide">$200.00</p>
 
-                        <h3 className="text-[20px] md:text-[22px] tracking-[0.15em] text-[#1c1c1c] uppercase font-normal mb-4">
-                            LE CONTINENTAL CAMEL LIÉGÉ
-                        </h3>
+                        <div className="w-full h-px bg-black/10 mb-6" />
 
-                        <p className="text-[14px] text-black/60 tracking-widest mb-8">
-                            $200.00
-                        </p>
-
-                        <div className="w-full h-[1px] bg-black/10 mb-8" />
-
-                        <p className="text-[13px] text-black/60 leading-relaxed max-w-[450px] mb-8">
+                        <p className="text-[13px] text-black/80 leading-relaxed font-cta mb-10 opacity-90">
                             Continental wallet in calfskin. Inside zip pocket for coins. 2 flat pockets for checks or bills. Leather lining. Heat embossed logo.
                         </p>
 
-                        {/* Color Selection */}
-                        <div className="mb-8">
-                            <p className="text-[12px] text-[#1c1c1c] mb-3">Color: Camel Liégé</p>
-                            <button className="w-8 h-8 rounded-none border border-black p-[2px] flex items-center justify-center">
-                                <span className="w-full h-full bg-[#B86B3E] block" />
-                            </button>
+                        <div className="mb-10">
+                            <p className="text-[14px] text-[#1c1c1c] mb-4 font-sans font-normal opacity-90">Color: Camel Liégé</p>
+                            <div className="w-8 h-8 border border-[#1c1c1c] p-[2px]">
+                                <div className="w-full h-full bg-[#B86B3E]" />
+                            </div>
                         </div>
 
-                        {/* Actions Row */}
-                        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-[500px]">
-                            {/* Quantity Selector */}
-                            <div className="flex items-center justify-between border border-black/20 w-full sm:w-[140px] px-4 py-4 shrink-0 bg-transparent">
-                                <button
-                                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                    className="text-black/40 hover:text-black transition-colors"
-                                >
-                                    <Minus className="w-4 h-4" />
-                                </button>
-                                <span className="text-[13px] text-[#1c1c1c] font-medium">{quantity}</span>
-                                <button
-                                    onClick={() => setQuantity(quantity + 1)}
-                                    className="text-black/40 hover:text-black transition-colors"
-                                >
-                                    <Plus className="w-4 h-4" />
-                                </button>
+                        <div className="flex flex-col gap-6 w-full">
+                            <div className="flex items-center justify-between bg-[#f0f0f0] w-[140px] px-4 py-3">
+                                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="text-black/40 hover:text-black transition-colors"><Minus className="w-3.5 h-3.5" /></button>
+                                <span className="text-[13px] font-normal text-[#1c1c1c] font-cta">{quantity}</span>
+                                <button onClick={() => setQuantity(quantity + 1)} className="text-black/40 hover:text-black transition-colors"><Plus className="w-3.5 h-3.5" /></button>
                             </div>
 
-                            {/* Add to Cart */}
-                            <button className="flex-1 bg-[#1c1c1c] hover:bg-black text-white text-[11px] tracking-[0.2em] uppercase transition-colors py-4">
-                                ADD TO CART
-                            </button>
+                            <AddToCartButton />
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
