@@ -9,6 +9,8 @@ interface CTAButtonProps {
     className?: string;
     variant?: "dark" | "light";
     animate?: boolean;
+    type?: "button" | "submit" | "reset";
+    style?: React.CSSProperties;
 }
 
 export default function CTAButton({
@@ -18,10 +20,12 @@ export default function CTAButton({
     className = "",
     variant = "dark",
     animate = true,
+    type = "button",
+    style,
 }: CTAButtonProps) {
     const isDark = variant === "dark";
 
-    const baseClasses = "relative group/btn w-fit overflow-hidden border py-[10px] px-[28px] text-[13px] font-medium tracking-[0.2em] uppercase font-nunito flex items-center justify-center transition-colors duration-500 ease-in-out";
+    const baseClasses = "relative group/btn w-fit overflow-hidden border py-[10px] px-[28px] text-[13px] font-medium tracking-[0.2em] uppercase font-cta flex items-center justify-center transition-colors duration-500 ease-in-out";
 
     let variantClasses = "";
     if (animate) {
@@ -46,8 +50,8 @@ export default function CTAButton({
     );
 
     return href ? (
-        <Link href={href} className={cls}>{inner}</Link>
+        <Link href={href} className={cls} style={style}>{inner}</Link>
     ) : (
-        <button onClick={onClick} className={cls}>{inner}</button>
+        <button type={type} onClick={onClick} className={cls} style={style}>{inner}</button>
     );
 }

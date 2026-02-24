@@ -96,7 +96,7 @@ export default function HeroSection() {
                             <Link
                                 key={i}
                                 href={btn.href}
-                                className={`group relative flex-1 md:flex-none max-w-[160px] md:min-w-[200px] px-[28.4px] py-[10px] text-[13px] font-[family-name:var(--font-nunito)] uppercase tracking-[0.2em] overflow-hidden border transition-colors duration-300 ease-in whitespace-nowrap hover:text-white ${btn.text === "MEN"
+                                className={`group relative flex-1 md:flex-none max-w-[160px] md:min-w-[200px] px-[28.4px] py-[10px] text-[13px] font-cta uppercase tracking-[0.2em] overflow-hidden border transition-colors duration-300 ease-in whitespace-nowrap hover:text-white ${btn.text === "MEN"
                                     ? "text-white border-transparent hover:border-black"
                                     : "text-black border-white"
                                     }`}

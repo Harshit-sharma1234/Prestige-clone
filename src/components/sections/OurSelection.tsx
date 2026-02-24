@@ -6,19 +6,19 @@ import { Plus, Minus } from "lucide-react";
 import AddToCartButton from "@/components/ui/AddToCartButton";
 
 const images = [
-    "/assets/darkpeach-1.webp",
-    "/assets/dark-peachbag2.webp",
-    "/assets/darkpeach-3.webp",
-    "/assets/darkpeach-4.webp",
-    "/assets/darkpeach-5.webp",
+    "/assets/brown-bag-1.webp",
+    "/assets/brown-bag-2.webp",
+    "/assets/brown-bag-3.webp",
+    "/assets/brown-bag-4.webp",
+    "/assets/brown-bag-5.webp",
 ];
 
 export default function OurSelection() {
     const [quantity, setQuantity] = useState(1);
-    const [currentImageIndex, setCurrentImageIndex] = useState(4);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     return (
-        <section className="bg-[#f9f9f9] py-24 font-sans border-t border-black/5">
+        <section className="bg-[#efefef] py-24 font-sans border-t border-black/5">
             <div className="max-w-[1440px] mx-auto px-6 md:px-[120px]">
                 {/* Header */}
                 <div className="text-center mb-24">
@@ -26,19 +26,17 @@ export default function OurSelection() {
                     <h2 className="text-[28px] tracking-[0.2em] font-normal uppercase text-[#1c1c1c] font-sans">PRODUCT OF THE WEEK</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[160px] items-center justify-center">
                     {/* Media */}
                     <div className="flex flex-col items-center">
-                        <div className="w-full aspect-[4/3] relative overflow-hidden mb-12">
+                        <div className="w-full md:w-[649px] aspect-square relative overflow-hidden mb-12">
                             <div
-                                className="flex h-full transition-transform duration-700 ease-in-out"
+                                className="flex w-full h-full transition-transform duration-700 ease-in-out"
                                 style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                             >
                                 {images.map((img, i) => (
-                                    <div key={i} className="relative w-full h-full shrink-0 flex items-center justify-center">
-                                        <div className="relative w-[80%] h-[80%]">
-                                            <Image src={img} alt="Product view" fill className="object-contain" priority={i === 4} />
-                                        </div>
+                                    <div key={i} className="relative w-full h-full shrink-0">
+                                        <Image src={img} alt="Product view" fill className="object-contain" priority={i === 0} />
                                     </div>
                                 ))}
                             </div>
@@ -75,7 +73,7 @@ export default function OurSelection() {
                         </div>
 
                         <div className="flex flex-col gap-6 w-full">
-                            <div className="flex items-center justify-between bg-[#f0f0f0] w-[140px] px-4 py-3">
+                            <div className="flex items-center justify-between bg-[#f0f0f0] border border-black/5 w-[140px] px-4 py-3">
                                 <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="text-black/40 hover:text-black transition-colors"><Minus className="w-3.5 h-3.5" /></button>
                                 <span className="text-[13px] font-normal text-[#1c1c1c] font-cta">{quantity}</span>
                                 <button onClick={() => setQuantity(quantity + 1)} className="text-black/40 hover:text-black transition-colors"><Plus className="w-3.5 h-3.5" /></button>

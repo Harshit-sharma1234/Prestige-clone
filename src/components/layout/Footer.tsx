@@ -19,16 +19,16 @@ const VimeoIcon = ({ className }: { className?: string }) => (
 
 export default function Footer() {
     return (
-        <footer className="bg-[#f7f7f7] font-sans pt-20 pb-10 border-t border-black/5">
-            <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+        <footer className="bg-[#ffffff] font-sans pt-20 pb-10">
+            <div className="max-w-[1800px] mx-auto px-4 md:px-10">
 
-                {/* 4-Column Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
+                {/* Footer Columns: Start, End, and Equal Middle Spacing */}
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 mb-20">
 
                     {/* Newsletter Column */}
-                    <div className="flex flex-col">
-                        <h4 className="text-[10px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">NEWSLETTER</h4>
-                        <p className="text-[13px] text-black/60 leading-relaxed max-w-[280px] mb-8">
+                    <div className="flex flex-col lg:max-w-[320px]">
+                        <h4 className="text-[12px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">NEWSLETTER</h4>
+                        <p className="text-[14px] text-black/60 leading-relaxed mb-8 font-cta">
                             Subscribe to receive updates, access to exclusive deals, and more.
                         </p>
                         <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4">
@@ -48,9 +48,9 @@ export default function Footer() {
                     </div>
 
                     {/* Shop Column */}
-                    <div className="flex flex-col lg:pl-8">
-                        <h4 className="text-[10px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">SHOP</h4>
-                        <ul className="flex flex-col gap-4 text-[13px] text-black/60">
+                    <div className="flex flex-col lg:w-auto">
+                        <h4 className="text-[12px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">SHOP</h4>
+                        <ul className="flex flex-col gap-2.5 text-[14px] text-black/60 font-cta">
                             <li><Link href="#" className="hover:text-black transition-colors">Women</Link></li>
                             <li><Link href="#" className="hover:text-black transition-colors">Men</Link></li>
                             <li><Link href="#" className="hover:text-black transition-colors">Small Leather Goods</Link></li>
@@ -59,9 +59,9 @@ export default function Footer() {
                     </div>
 
                     {/* Information Column */}
-                    <div className="flex flex-col">
-                        <h4 className="text-[10px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">INFORMATION</h4>
-                        <ul className="flex flex-col gap-4 text-[13px] text-black/60">
+                    <div className="flex flex-col lg:w-auto">
+                        <h4 className="text-[12px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">INFORMATION</h4>
+                        <ul className="flex flex-col gap-2.5 text-[14px] text-black/60 font-cta">
                             <li><Link href="#" className="hover:text-black transition-colors">Theme Features</Link></li>
                             <li><Link href="#" className="hover:text-black transition-colors">About us</Link></li>
                             <li><Link href="#" className="hover:text-black transition-colors">Contact us</Link></li>
@@ -71,12 +71,11 @@ export default function Footer() {
                     </div>
 
                     {/* About the Shop Column */}
-                    <div className="flex flex-col">
-                        <h4 className="text-[10px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">ABOUT THE SHOP</h4>
-                        <p className="text-[13px] text-black/60 leading-relaxed mb-4">
+                    <div className="flex flex-col lg:max-w-[420px]">
+                        <h4 className="text-[12px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">ABOUT THE SHOP</h4>
+                        <p className="text-[14px] text-black/60 leading-relaxed font-cta">
                             The story of Léo and Violette, it's ours. We are Léo Dominguez & Violette Polchi. Two Parisian lovers sharing our lives for more than 8 years. Since the early days of our meeting, we always had the dream to develop a project together. Here it is!
-                        </p>
-                        <p className="text-[13px] text-black/60 leading-relaxed">
+                            <br /><br className="md:hidden" />
                             Thanks to <Link href="#" className="border-b border-black/20 hover:border-black/60 transition-colors pb-[1px] text-black/80">Léo et Violette</Link> for allowing us to use their products in this demo store.
                         </p>
                     </div>
@@ -103,7 +102,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Row */}
-                <div className="flex flex-col lg:flex-row items-center justify-between border-t border-black/10 pt-8 gap-6 lg:gap-0 px-2 text-[10px] tracking-[0.1em] text-black/50 uppercase font-medium">
+                <div className="flex flex-col lg:flex-row items-center justify-between pt-8 gap-6 lg:gap-0 px-2 text-[10px] tracking-[0.1em] text-black/50 uppercase font-medium">
 
                     {/* Language/Country Selector */}
                     <button className="flex items-center gap-3 hover:text-black transition-colors">
@@ -113,17 +112,21 @@ export default function Footer() {
                     </button>
 
                     {/* Copyright */}
-                    <div className="text-center">
+                    <div className="text-center text-[12px]">
                         © 2026 - PRESTIGE - ALLURE POWERED BY SHOPIFY
                     </div>
 
-                    {/* Payment Initial place holders, styled as small badges to look like the screenshot */}
-                    <div className="flex items-center gap-2">
-                        {["VISA", "MC", "AMEX", "PAYPAL", "DINERS", "DISCOVER"].map((card) => (
-                            <div key={card} className="px-2 py-1 bg-white border border-black/10 rounded-[2px] text-[8px] sm:text-[9px] font-bold text-black/60 shadow-sm flex items-center justify-center">
-                                {card}
-                            </div>
-                        ))}
+                    {/* Payment Logos */}
+                    <div className="flex items-center gap-4">
+                        <div className="relative h-6 w-[240px] grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300 overflow-hidden">
+                            <Image
+                                src="/assets/payment-logos.png"
+                                alt="Payment Methods"
+                                fill
+                                className="object-cover object-center scale-[2.2]"
+                                quality={90}
+                            />
+                        </div>
                     </div>
 
                 </div>

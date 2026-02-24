@@ -43,8 +43,9 @@ export default function Home() {
             <TimelineSection />
             <TheCoupleSection />
             <AboutFromAtoZSection />
-            <JoinUsSection />
             <NewsletterSection />
+            <JoinUsSection />
+
 
         </main>
     );

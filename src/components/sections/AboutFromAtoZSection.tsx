@@ -35,27 +35,27 @@ export default function AboutFromAtoZSection() {
                     </h2>
                 </div>
 
-                {/* 3-Column Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                {/* Grid */}
+                <div className="flex flex-col md:flex-row gap-12 md:gap-20 justify-center items-start overflow-x-auto md:overflow-visible pb-8 md:pb-0">
                     {aboutData.map((item, index) => (
-                        <div key={index} className="flex flex-col text-center items-center group">
-
+                        <div key={index} className="flex flex-col text-center items-center group shrink-0 w-full md:w-[491px]">
                             {/* Image Container */}
-                            <div className="w-full aspect-[4/5] md:aspect-square relative mb-8 overflow-hidden bg-[#f5f5f5]">
+                            <div className="w-full h-[736px] relative mb-10 overflow-hidden bg-[#f5f5f5] shadow-sm">
                                 <Image
                                     src={item.image}
                                     alt={item.title}
                                     fill
                                     className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                                    priority={index === 0}
                                 />
                             </div>
 
                             {/* Content */}
-                            <h3 className="text-[14px] md:text-[15px] tracking-[0.15em] uppercase text-[#1c1c1c] mb-6 font-normal">
+                            <h3 className="text-[18px] tracking-[0.2em] uppercase text-[#1c1c1c] mb-5 font-normal">
                                 {item.title}
                             </h3>
 
-                            <p className="text-[13px] text-black/60 leading-relaxed max-w-[350px]">
+                            <p className="text-[14px] text-[#1c1c1c] leading-relaxed w-full font-light font-nunito">
                                 {item.description}
                             </p>
                         </div>

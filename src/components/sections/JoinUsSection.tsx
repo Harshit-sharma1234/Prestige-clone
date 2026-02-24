@@ -36,22 +36,22 @@ const features = [
 
 export default function JoinUsSection() {
     return (
-        <section className="bg-[#f2f2f2] pt-20 pb-32 font-sans overflow-hidden">
+        <section className="bg-[#f2f2f2] pt-20 pb-20 font-sans overflow-hidden">
             <div className="max-w-[1440px] mx-auto">
                 <div className="text-center mb-12">
-                    <h6 className="text-[10px] tracking-[0.2em] uppercase text-black/60 mb-4 font-medium">JOIN US</h6>
-                    <h2 className="text-[20px] md:text-[24px] tracking-[0.15em] font-normal uppercase text-[#1c1c1c]">@LEOETVIOLETTE</h2>
+                    <h6 className="text-[12px] tracking-[0.2em] uppercase text-[#1c1c1c] mb-4">JOIN US</h6>
+                    <h2 className="text-[20px] md:text-[28px] tracking-[0.15em] font-normal uppercase text-[#1c1c1c]">@LEOETVIOLETTE</h2>
                 </div>
 
                 {/* 5-Image Grid */}
-                <div className="flex px-4 md:px-6 w-full gap-2 md:gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide mb-20">
+                <div className="flex px-4 md:px-6 w-full gap-5 md:gap-10 justify-center overflow-x-auto md:overflow-visible scrollbar-hide mb-20">
                     {images.map((img, i) => (
-                        <div key={i} className="relative w-[280px] md:w-1/5 aspect-square shrink-0 snap-center bg-white group overflow-hidden">
+                        <div key={i} className="relative w-[298px] h-[298px] shrink-0 bg-white group overflow-hidden shadow-sm">
                             <Image
                                 src={img}
                                 alt={`Instagram feature ${i + 1}`}
                                 fill
-                                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
                             />
                         </div>
                     ))}

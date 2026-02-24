@@ -15,18 +15,18 @@ export default function TheCoupleSection() {
             />
 
             {/* Dark Overlay for Text Readability */}
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/30" />
 
             {/* Centered Text Overlay */}
             <div className="absolute inset-0 flex items-center justify-center px-6">
                 <div className="text-center text-white max-w-[600px]">
-                    <h6 className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase mb-4 text-white/90">
+                    <h6 className="text-[10px] md:text-[12px] tracking-[0.2em] uppercase text-white/90">
                         THE COUPLE
                     </h6>
-                    <h2 className="text-[28px] md:text-[32px] tracking-[0.15em] uppercase font-normal mb-6">
+                    <h2 className="text-[32px] md:text-[22px] tracking-[0.15em] uppercase  mt-5">
                         LÉO ET VIOLETTE
                     </h2>
-                    <p className="text-[14px] md:text-[15px] leading-relaxed text-white/90 font-light">
+                    <p className="text-[14px] md:text-[14px] leading-relaxed text-white/90 font-light font-nunito mt-[20px]">
                         We aspire to be a brand of the 21st century: 100% online and without any intermediary.<br className="hidden md:block" />
                         From you to us directly.
                     </p>
