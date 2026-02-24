@@ -4,25 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-
-const steps = [
-    {
-        id: 1,
-        step: "# 1",
-        title: "THE DESIGN",
-        description: "At Léo et Violette, we create our bags with you in mind. All our products are imagined and designed in Paris, in our offices on rue Sainte-Anne. Most of the time, an idea for a model comes from a need that you have expressed to us through the various feedbacks we collect throughout the year.",
-        image: "/assets/commitments_first.webp",
-        link: "/pages/design"
-    },
-    {
-        id: 2,
-        step: "# 2",
-        title: "OUR COMMITMENTS",
-        description: "At Léo et Violette, from day one we have made responsibility part of our values. Towards you, and also towards the environment through the way we produce our collections. From design to distribution, we take the greatest care with our products, which reflect our values: timeless, quality, at the right price.",
-        image: "/assets/Images_with_text_scroll_-_Image_-_home_2.webp",
-        link: "/pages/commitments"
-    }
-];
+import { scrollSteps as steps } from "@/lib/data";
 
 export default function ScrollSection() {
     const containerRef = useRef<HTMLDivElement>(null);

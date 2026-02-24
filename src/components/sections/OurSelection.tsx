@@ -4,14 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import AddToCartButton from "@/components/ui/AddToCartButton";
-
-const images = [
-    "/assets/brown-bag-1.webp",
-    "/assets/brown-bag-2.webp",
-    "/assets/brown-bag-3.webp",
-    "/assets/brown-bag-4.webp",
-    "/assets/brown-bag-5.webp",
-];
+import { ourSelectionImages as images } from "@/lib/data";
 
 export default function OurSelection() {
     const [quantity, setQuantity] = useState(1);
@@ -47,6 +40,7 @@ export default function OurSelection() {
                                 <button
                                     key={i}
                                     onClick={() => setCurrentImageIndex(i)}
+                                    aria-label={`View image ${i + 1}`}
                                     className={`w-1.5 h-1.5 rounded-full transition-all ${currentImageIndex === i ? "bg-[#1c1c1c]" : "bg-black/20 hover:bg-black/40"}`}
                                 />
                             ))}
@@ -74,9 +68,9 @@ export default function OurSelection() {
 
                         <div className="flex flex-col gap-6 w-full">
                             <div className="flex items-center justify-between bg-[#f0f0f0] border border-black/5 w-[140px] px-4 py-3">
-                                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="text-black/40 hover:text-black transition-colors"><Minus className="w-3.5 h-3.5" /></button>
+                                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="text-black/40 hover:text-black transition-colors" aria-label="Decrease quantity"><Minus className="w-3.5 h-3.5" /></button>
                                 <span className="text-[13px] font-normal text-[#1c1c1c] font-cta">{quantity}</span>
-                                <button onClick={() => setQuantity(quantity + 1)} className="text-black/40 hover:text-black transition-colors"><Plus className="w-3.5 h-3.5" /></button>
+                                <button onClick={() => setQuantity(quantity + 1)} className="text-black/40 hover:text-black transition-colors" aria-label="Increase quantity"><Plus className="w-3.5 h-3.5" /></button>
                             </div>
 
                             <AddToCartButton />

@@ -118,6 +118,16 @@ export default function BeforeAfterSection() {
                                    flex items-center justify-center cursor-ew-resize
                                    z-30"
                         style={{ left: `${position}%` }}
+                        role="slider"
+                        aria-valuenow={Math.round(position)}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-label="Color comparison slider"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                            if (e.key === 'ArrowLeft') setPosition(prev => Math.max(0, prev - 2));
+                            if (e.key === 'ArrowRight') setPosition(prev => Math.min(100, prev + 2));
+                        }}
                     >
                         <div className="flex gap-0.5 text-[#1c1c1c]">
                             <ChevronLeft className="w-3.5 h-3.5" strokeWidth={2.5} />

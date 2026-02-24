@@ -3,25 +3,9 @@
 import { useState } from "react";
 import CTAButton from "@/components/ui/CTAButton";
 import ProductCarousel from "@/components/ui/ProductCarousel";
+import { bestSellerProducts as products } from "@/lib/data";
 
 type Tab = "women" | "men";
-
-const products = {
-    women: [
-        { id: 1, name: "GRAND NOVA LISSE IVOIRE", price: "$420.00", image: "/assets/Grand-Nova-Lisse-Ivoire-01_c5e43010-e4a3-4dac-97b1-5552659b9a73.webp", imageHover: "/assets/white-b.webp", badge: "NEW" },
-        { id: 2, name: "LE GINA LIEGE PETROLE", price: "$320.00", image: "/assets/Le-Gina-Liege-Petrole-01_6b1ce683-98ce-4739-9915-b1ec09d718cc.webp", imageHover: "/assets/green-b.webp" },
-        { id: 3, name: "ELEGANT CUIR MIROIR CHOCOLAT", price: "$420.00", image: "/assets/brown-f.webp", imageHover: "/assets/Elegant-Cuir-Miroir-Chocolat-01_78e03cea-f382-4fd4-a12d-71e1d9cb0999.webp" },
-        { id: 4, name: "LE SLIM BRIEFCASE BLACK", price: "$470.00", image: "/assets/black-f.webp", imageHover: "/assets/black-b.webp", badge: "BEST SELLER" },
-        { id: 9, name: "WOMEN BAG CAROUSEL", price: "$390.00", image: "/assets/women-bag-caraousel.webp", badge: "NEW" },
-        { id: 10, name: "WOMEN BAG CAROUSEL", price: "$390.00", image: "/assets/women-bag-caraousel-back.webp", badge: "BEST SELLER" },
-    ],
-    men: [
-        { id: 5, name: "LE SLIM BRIEFCASE BLACK", price: "$420.00", image: "/assets/black-f.webp", imageHover: "/assets/black-b.webp", badge: "NEW" },
-        { id: 6, name: "ELEGANT CUIR MIROIR CHOCOLAT", price: "$320.00", image: "/assets/brown-f.webp", imageHover: "/assets/Elegant-Cuir-Miroir-Chocolat-01_78e03cea-f382-4fd4-a12d-71e1d9cb0999.webp" },
-        { id: 7, name: "LE GINA LIEGE PETROLE", price: "$420.00", image: "/assets/Le-Gina-Liege-Petrole-01_6b1ce683-98ce-4739-9915-b1ec09d718cc.webp", imageHover: "/assets/green-b.webp" },
-        { id: 8, name: "GRAND NOVA LISSE IVOIRE", price: "$470.00", image: "/assets/Grand-Nova-Lisse-Ivoire-01_c5e43010-e4a3-4dac-97b1-5552659b9a73.webp", imageHover: "/assets/white-b.webp", badge: "BEST SELLER" },
-    ],
-};
 
 function TabButton({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
     return (

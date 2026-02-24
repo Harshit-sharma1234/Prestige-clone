@@ -2,51 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-
-const timelineData = [
-    {
-        year: "2013",
-        subtitle: "FIRST PRODUCT",
-        title: "LE PETIT CARTABLE",
-        description: "Leo et Violette's story is ours. We are Léo Dominguez & Violette Polchi. Two Parisian lovers sharing our life for more than 8 years. Ever since we met, we always had the dream to develop a project together. By creating Le petit cartable in January 2013, we started to realize this dream. Our first Kickstarter campaign is launched!",
-        image: "/assets/timeline-1.webp",
-    },
-    {
-        year: "2014",
-        subtitle: "OUR VISION",
-        title: "TRANSPARENCY",
-        description: "No intermediaries and no wholesalers. So no excessive margins. It's just between you and us. And this is what allows us to offer you a quality product at an affordable price. Welcome to the fashion of the 21st century.",
-        image: "/assets/timeline-2.webp",
-    },
-    {
-        year: "2015",
-        subtitle: "NEW FACTORY",
-        title: "RELATIONSHIP",
-        description: "Our workshop is located next to Naples, Italy. It was founded in the early 1980s by Dino Levorino, a craftsman well known for his know-how. The workshop was taken over by his son Gennaro, with whom we talk every day, about the production and the design of new models. More than just a factory, they are real partners who have shared Leo et Violette's vision.",
-        image: "/assets/timeline-3.webp",
-    },
-    {
-        year: "2017",
-        subtitle: "OPENING",
-        title: "OUR FLAGSHIP",
-        description: "Our first Léo et Violette location, right in the heart of Paris. The perfect place to discover and buy the collection. Open Monday to Saturday + Sunday in December.",
-        image: "/assets/timeline-4.webp",
-    },
-    {
-        year: "2020",
-        subtitle: "NEW IDEA",
-        title: "SMALL LEATHER GOODS",
-        description: "With the success of our bags we wanted to go further by offering small leather goods: wallets, card holders and pouches.",
-        image: "/assets/Timeline-5.webp",
-    },
-    {
-        year: "2021",
-        subtitle: "FIRST COLLABORATION",
-        title: "LÉO ET VIOLETTE X WENDY SWAN",
-        description: "The meeting between Wendy and Léo et Violette gave birth to our new bag: The Dalia. Every detail, from the choice of leather quality to the metal parts, has been carefully thought out.",
-        image: "/assets/timeline-6.webp",
-    }
-];
+import { timelineData } from "@/lib/data";
 
 export default function TimelineSection() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -100,6 +56,8 @@ export default function TimelineSection() {
                         <button
                             key={item.year}
                             onClick={() => setActiveIndex(idx)}
+                            aria-label={`Year ${item.year}: ${item.title}`}
+                            aria-current={activeIndex === idx ? "step" : undefined}
                             className={`tracking-[0.15em] pb-2 transition-all duration-300 border-b-2 ${activeIndex === idx
                                 ? "text-[18px] text-[#1c1c1c] border-[#1c1c1c] font-medium"
                                 : "text-[13px] text-black/50 border-transparent hover:text-black"

@@ -4,22 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
-
-type Product = { id: string; x: number; y: number; badge?: string; name: string; price: string; image: string; imageHover: string; href: string };
-type Look = { id: number; image: string; products: Product[] };
-
-const looks: Look[] = [
-    {
-        id: 1, image: "/assets/Shop_the_look_-_home_2.jpg", products: [
-            { id: "p2", x: 62, y: 43, badge: "BEST SELLER", name: "LE GRAND NOVA IVORY LIÉGÉ", price: "$450.00", image: "/assets/Grand-Nova-Lisse-Ivoire-01_c5e43010-e4a3-4dac-97b1-5552659b9a73.webp", imageHover: "/assets/white-b.webp", href: "#" }
-        ]
-    },
-    {
-        id: 2, image: "/assets/Shop_the_look_-_mini_primo.jpg", products: [
-            { id: "p4", x: 65, y: 76, badge: "BEST SELLER", name: "LE GINA LIEGE PETROLE", price: "$320.00", image: "/assets/shopt-thelook2-front.webp", imageHover: "/assets/shopthelook2-back.webp", href: "#" }
-        ]
-    }
-];
+import { shopTheLookData as looks } from "@/lib/data";
+import type { HotspotProduct, Look } from "@/lib/types";
 
 export default function ShopTheLook() {
     const [idx, setIdx] = useState(0);
@@ -61,6 +47,7 @@ export default function ShopTheLook() {
                                     key={p.id}
                                     onMouseEnter={() => setActiveId(p.id)}
                                     onClick={() => setActiveId(p.id)}
+                                    aria-label={`View ${p.name}`}
                                     className={`absolute w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all ${isActive ? "bg-white/30 scale-110" : "bg-white/10 hover:bg-white/20"}`}
                                     style={{ top: `${p.y}%`, left: `${p.x}%` }}
                                 >
@@ -84,7 +71,7 @@ export default function ShopTheLook() {
                         {/* Pagination */}
                         <div className="flex gap-2 mt-8">
                             {looks.map((_, i) => (
-                                <button key={i} onClick={() => { setIdx(i); setActiveId(looks[i].products[0].id); }} className={`w-1.5 h-1.5 rounded-full transition-colors ${idx === i ? "bg-black" : "bg-black/20"}`} aria-label={`Look ${i + 1}`} />
+                                <button key={i} onClick={() => { setIdx(i); setActiveId(looks[i].products[0].id); }} className={`w-1.5 h-1.5 rounded-full transition-colors ${idx === i ? "bg-black" : "bg-black/20"}`} aria-label={`View look ${i + 1}`} />
                             ))}
                         </div>
                     </div>

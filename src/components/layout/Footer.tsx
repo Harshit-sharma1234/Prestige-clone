@@ -1,8 +1,11 @@
 "use client";
 
-import { Facebook, Twitter, Instagram, ArrowRight } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import CTAButton from "../ui/CTAButton";
+import PaymentIcons from "../ui/PaymentIcons";
+import { footerShopLinks, footerInfoLinks } from "@/lib/data";
 
 // Simple custom component for Vimeo since lucide doesn't have it natively or it's rarely used
 const VimeoIcon = ({ className }: { className?: string }) => (
@@ -23,7 +26,7 @@ export default function Footer() {
             <div className="max-w-[1800px] mx-auto px-4 md:px-10">
 
                 {/* Footer Columns: Start, End, and Equal Middle Spacing */}
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 mb-20">
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 mb-12">
 
                     {/* Newsletter Column */}
                     <div className="flex flex-col lg:max-w-[320px]">
@@ -38,35 +41,32 @@ export default function Footer() {
                                 required
                                 className="w-full bg-white border border-black/10 text-black px-4 py-3.5 text-[13px] focus:outline-none focus:border-black transition-colors"
                             />
-                            <button
+                            <CTAButton
+                                text="SUBSCRIBE"
                                 type="submit"
-                                className="bg-[#1c1c1c] text-white self-start px-8 py-3.5 text-[10px] tracking-[0.2em] font-medium uppercase hover:bg-black/80 transition-colors"
-                            >
-                                SUBSCRIBE
-                            </button>
+                                variant="dark"
+                                className="self-start px-8 w-fit"
+                            />
                         </form>
                     </div>
 
                     {/* Shop Column */}
                     <div className="flex flex-col lg:w-auto">
-                        <h4 className="text-[12px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">SHOP</h4>
+                        <h4 className="text-[12px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">{footerShopLinks.title}</h4>
                         <ul className="flex flex-col gap-2.5 text-[14px] text-black/60 font-cta">
-                            <li><Link href="#" className="hover:text-black transition-colors">Women</Link></li>
-                            <li><Link href="#" className="hover:text-black transition-colors">Men</Link></li>
-                            <li><Link href="#" className="hover:text-black transition-colors">Small Leather Goods</Link></li>
-                            <li><Link href="#" className="hover:text-black transition-colors">Collaboration</Link></li>
+                            {footerShopLinks.links.map((link) => (
+                                <li key={link.label}><Link href={link.href} className="hover:text-black transition-colors">{link.label}</Link></li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Information Column */}
                     <div className="flex flex-col lg:w-auto">
-                        <h4 className="text-[12px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">INFORMATION</h4>
+                        <h4 className="text-[12px] tracking-[0.2em] font-medium uppercase text-[#1c1c1c] mb-6">{footerInfoLinks.title}</h4>
                         <ul className="flex flex-col gap-2.5 text-[14px] text-black/60 font-cta">
-                            <li><Link href="#" className="hover:text-black transition-colors">Theme Features</Link></li>
-                            <li><Link href="#" className="hover:text-black transition-colors">About us</Link></li>
-                            <li><Link href="#" className="hover:text-black transition-colors">Contact us</Link></li>
-                            <li><Link href="#" className="hover:text-black transition-colors">FAQ</Link></li>
-                            <li><Link href="#" className="hover:text-black transition-colors">Maintenance Tips</Link></li>
+                            {footerInfoLinks.links.map((link) => (
+                                <li key={link.label}><Link href={link.href} className="hover:text-black transition-colors">{link.label}</Link></li>
+                            ))}
                         </ul>
                     </div>
 
@@ -83,51 +83,45 @@ export default function Footer() {
                 </div>
 
                 {/* Social Icons */}
-                <div className="flex gap-6 mb-16 px-2">
-                    <Link href="#" className="text-black/60 hover:text-black transition-colors">
+                <div className="flex gap-6 mb-10 px-2">
+                    <Link href="#" className="text-black/60 hover:text-black transition-colors" aria-label="Facebook">
                         <Facebook className="w-[18px] h-[18px]" strokeWidth={1.5} />
                     </Link>
-                    <Link href="#" className="text-black/60 hover:text-black transition-colors">
+                    <Link href="#" className="text-black/60 hover:text-black transition-colors" aria-label="X (Twitter)">
                         {/* Twitter X icon approximation */}
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
                             <path d="M4 4l16 16m0-16L4 20" />
                         </svg>
                     </Link>
-                    <Link href="#" className="text-black/60 hover:text-black transition-colors">
+                    <Link href="#" className="text-black/60 hover:text-black transition-colors" aria-label="Instagram">
                         <Instagram className="w-[18px] h-[18px]" strokeWidth={1.5} />
                     </Link>
-                    <Link href="#" className="text-black/60 hover:text-black transition-colors">
+                    <Link href="#" className="text-black/60 hover:text-black transition-colors" aria-label="Vimeo">
                         <VimeoIcon className="w-[18px] h-[18px]" />
                     </Link>
                 </div>
 
                 {/* Bottom Row */}
-                <div className="flex flex-col lg:flex-row items-center justify-between pt-8 gap-6 lg:gap-0 px-2 text-[10px] tracking-[0.1em] text-black/50 uppercase font-medium">
+                <div className="flex flex-col lg:flex-row items-center justify-between pt-4 gap-6 lg:gap-0 px-2 text-[10px] tracking-[0.1em] text-black/50 uppercase font-medium">
 
                     {/* Language/Country Selector */}
-                    <button className="flex items-center gap-3 hover:text-black transition-colors">
+                    <button
+                        className="flex items-center gap-3 hover:text-black transition-colors text-[11px]"
+                        style={{ wordSpacing: '4px' }}
+                        aria-label="Select country and language"
+                    >
                         <Image src="/assets/us.svg" alt="USA Flag" width={20} height={14} className="border border-black/10" />
                         <span>UNITED STATES (USD $)</span>
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                     </button>
 
                     {/* Copyright */}
-                    <div className="text-center text-[12px]">
+                    <div className="text-center text-[11px]" style={{ wordSpacing: '4px' }}>
                         © 2026 - PRESTIGE - ALLURE POWERED BY SHOPIFY
                     </div>
 
                     {/* Payment Logos */}
-                    <div className="flex items-center gap-4">
-                        <div className="relative h-6 w-[240px] grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300 overflow-hidden">
-                            <Image
-                                src="/assets/payment-logos.png"
-                                alt="Payment Methods"
-                                fill
-                                className="object-cover object-center scale-[2.2]"
-                                quality={90}
-                            />
-                        </div>
-                    </div>
+                    <PaymentIcons />
 
                 </div>
 
