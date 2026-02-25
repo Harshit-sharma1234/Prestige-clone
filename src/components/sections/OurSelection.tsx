@@ -78,7 +78,7 @@ export default function OurSelection() {
                                 href="/Cart"
                                 variant="dark"
                                 animate={true}
-                                className="!text-[11px] !py-[20px] !px-14 !tracking-[0.25em]"
+                                className="!text-[11px] !py-[20px] !px-14 !tracking-[0.25em] w-full md:!w-[531px]"
                             />
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import CTAButton from "../ui/CTAButton";
 import PaymentIcons from "../ui/PaymentIcons";
 import { footerShopLinks, footerInfoLinks } from "@/lib/data";
+import CountryDropdown from "./CountryDropdown";
 
 // Simple custom component for Vimeo since lucide doesn't have it natively or it's rarely used
 const VimeoIcon = ({ className }: { className?: string }) => (
@@ -104,16 +105,8 @@ export default function Footer() {
                 {/* Bottom Row */}
                 <div className="flex flex-col lg:flex-row items-center justify-between pt-4 gap-6 lg:gap-0 px-2 text-[10px] tracking-[0.1em] text-black/50 uppercase font-medium">
 
-                    {/* Language/Country Selector */}
-                    <button
-                        className="flex items-center gap-3 hover:text-black transition-colors text-[11px]"
-                        style={{ wordSpacing: '4px' }}
-                        aria-label="Select country and language"
-                    >
-                        <Image src="/assets/us.svg" alt="USA Flag" width={20} height={14} className="border border-black/10" />
-                        <span>UNITED STATES (USD $)</span>
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                    </button>
+
+                    <CountryDropdown showFullText={true} />
 
                     {/* Copyright */}
                     <div className="text-center text-[11px]" style={{ wordSpacing: '4px' }}>

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 const quotes = [
     {
@@ -34,15 +35,42 @@ const quotes = [
 export default function QuoteSection() {
     const [activeIndex, setActiveIndex] = useState(0);
 
+    const variants = {
+        enter: {
+            y: 50,
+            opacity: 0
+        },
+        center: {
+            y: 0,
+            opacity: 1
+        },
+        exit: {
+            y: -50,
+            opacity: 0
+        }
+    };
+
     return (
-        <section className="bg-[#1c1c1c] text-white py-[100px] h-[413.5px] font-sans border-t border-black/10 flex items-center justify-center">
+        <section className="bg-[#1c1c1c] text-white py-[100px] h-[413.5px] font-sans border-t border-black/10 flex items-center justify-center overflow-hidden">
             <div className="max-w-[800px] w-full mx-auto px-6 flex flex-col items-center justify-center">
 
                 {/* Quote Text */}
-                <div className="min-h-[140px] md:min-h-[120px] flex items-center justify-center text-center mb-16">
-                    <p className="text-[18px] md:text-[20px] leading-relaxed font-nunito font-light text-white/90 px-4 transition-opacity duration-300">
-                        {quotes[activeIndex].text}
-                    </p>
+                <div className="relative min-h-[140px] w-full md:min-h-[120px] flex items-center justify-center mb-16 overflow-hidden">
+                    <AnimatePresence initial={false} mode="popLayout">
+                        <motion.div
+                            key={activeIndex}
+                            variants={variants}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                            className="absolute w-full px-4 flex items-center justify-center text-center"
+                        >
+                            <p className="text-[18px] md:text-[20px] leading-relaxed font-nunito font-light text-white/90">
+                                {quotes[activeIndex].text}
+                            </p>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
 
                 {/* Logos Navigation */}

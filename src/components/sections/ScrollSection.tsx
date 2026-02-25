@@ -16,14 +16,14 @@ export default function ScrollSection() {
     // Content 1 Animation: Text scrolls UPWARDS and out
     const textY1 = useTransform(scrollYProgress, [0, 0.4], ["0%", "-20%"]);
     const textOpacity1 = useTransform(scrollYProgress, [0, 0.1, 0.4], [1, 1, 0]);
-    const imgOpacity1 = useTransform(scrollYProgress, [0, 0.35, 0.45], [1, 1, 0]);
-    const imgScale1 = useTransform(scrollYProgress, [0, 0.35, 0.45], [1, 1, 1.1]);
+    const imgOpacity1 = useTransform(scrollYProgress, [0, 0.35, 0.55], [1, 1, 0]);
+    const imgScale1 = useTransform(scrollYProgress, [0, 0.2, 0.55], [1, 1, 1.1]);
 
     // Content 2 Animation: Text enters from BOTTOM
     const textY2 = useTransform(scrollYProgress, [0.4, 0.7], ["20%", "0%"]);
     const textOpacity2 = useTransform(scrollYProgress, [0.4, 0.5, 1], [0, 1, 1]);
     const imgOpacity2 = useTransform(scrollYProgress, [0.4, 0.5, 1], [0, 1, 1]);
-    const imgScale2 = useTransform(scrollYProgress, [0.4, 0.5, 1], [0.9, 1, 1]);
+    const imgScale2 = useTransform(scrollYProgress, [0.4, 0.6, 1], [0.95, 1, 1]);
 
     return (
         <section ref={containerRef} className="relative h-[140vh] bg-[#efefef]">

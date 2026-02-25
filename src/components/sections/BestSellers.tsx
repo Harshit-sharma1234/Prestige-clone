@@ -17,7 +17,7 @@ function TabButton({ label, active, onClick }: { label: string; active: boolean;
 }
 
 export default function BestSellers() {
-    const [activeTab, setActiveTab] = useState<Tab>("men");
+    const [activeTab, setActiveTab] = useState<Tab>("women");
 
     return (
         <section id="best-sellers" className="bg-[#efefef] py-20 md:pt-[105px] md:pb-[80px] group/section font-sans">
@@ -30,11 +30,11 @@ export default function BestSellers() {
                 </div>
             </div>
 
-            <ProductCarousel products={products[activeTab]} />
+            <ProductCarousel key={activeTab} products={products[activeTab]} />
 
             {/* CTA */}
             <div className="mt-12 flex justify-center">
-                <CTAButton text="ALL WOMEN'S BAGS" href="/collections/women" />
+                <CTAButton text={`ALL ${activeTab.toUpperCase()}'S BAGS`} href={`/collections/${activeTab}`} />
             </div>
         </section>
     );

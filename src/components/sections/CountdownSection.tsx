@@ -2,16 +2,38 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import CTAButton from "@/components/ui/CTAButton";
 
 const formatNumber = (num: number) => num.toString().padStart(2, '0');
 
-const TimeUnit = ({ value, label }: { value: number, label: string }) => (
-    <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
-        <span className="text-[44px] md:text-[32px] font-normal leading-none mb-3">{formatNumber(value)}</span>
-        <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/90">{label}</span>
-    </div>
-);
+const TimeUnit = ({ value, label }: { value: number, label: string }) => {
+    const formatted = formatNumber(value);
+
+    return (
+        <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
+            <div className="flex justify-center items-center mb-3 h-[44px] md:h-[32px] text-[44px] md:text-[32px] font-normal leading-none tabular-nums">
+                {formatted.split('').map((digit, i) => (
+                    <div key={i} className="relative w-[1ch] h-full overflow-hidden inline-block">
+                        <AnimatePresence mode="popLayout">
+                            <motion.span
+                                key={`${i}-${digit}`}
+                                initial={{ y: "100%", opacity: 0 }}
+                                animate={{ y: "0%", opacity: 1 }}
+                                exit={{ y: "-100%", opacity: 0 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                                className="absolute inset-0 flex items-center justify-center"
+                            >
+                                {digit}
+                            </motion.span>
+                        </AnimatePresence>
+                    </div>
+                ))}
+            </div>
+            <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/90">{label}</span>
+        </div>
+    );
+};
 
 const Colon = () => <span className="text-[20px] md:text-[24px] font-light mt-2 md:mt-3 opacity-60">:</span>;
 

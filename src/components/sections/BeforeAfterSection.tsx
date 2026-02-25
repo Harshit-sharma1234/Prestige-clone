@@ -119,8 +119,8 @@ export default function BeforeAfterSection() {
                             />
                             {/* Product Label (Left) - Inside clipped container */}
                             <div className="absolute bottom-8 left-8 pointer-events-none whitespace-nowrap">
-                                <p className="text-[12px] tracking-[0.1em] text-[#1c1c1c] uppercase mb-1">ALMOND GREEN LIÉGÉ</p>
-                                <Link href="#" className="pointer-events-auto text-[11px] text-[#1c1c1c] border-b border-[#1c1c1c] pb-0.5 hover:opacity-60 transition-opacity">
+                                <p className="text-[14px] font-sans tracking-[0.1em] text-[#1c1c1c] uppercase mb-1">ALMOND GREEN LIÉGÉ</p>
+                                <Link href="#" className="pointer-events-auto font-nunito text-[14px] text-[#1c1c1c] pb-0.5 transition-all duration-300 bg-gradient-to-r from-[#1c1c1c] to-[#1c1c1c] bg-[length:100%_1px] bg-no-repeat bg-left-bottom hover:bg-[length:0%_1px]">
                                     View product
                                 </Link>
                             </div>
@@ -129,8 +129,8 @@ export default function BeforeAfterSection() {
 
                     {/* After Image (base) - Product label here will be covered by z-10 layer above */}
                     <div className="absolute bottom-8 right-8 z-0 text-right pointer-events-none">
-                        <p className="text-[12px] tracking-[0.1em] text-[#1c1c1c] uppercase mb-1">BLUE DENIM LIÉGÉ</p>
-                        <Link href="#" className="pointer-events-auto text-[11px] text-[#1c1c1c] border-b border-[#1c1c1c] pb-0.5 hover:opacity-60 transition-opacity">
+                        <p className="text-[14px] font-sans tracking-[0.1em] text-[#1c1c1c] uppercase mb-1">BLUE DENIM LIÉGÉ</p>
+                        <Link href="#" className="pointer-events-auto font-nunito text-[14px] text-[#1c1c1c] pb-0.5 transition-all duration-300 bg-gradient-to-r from-[#1c1c1c] to-[#1c1c1c] bg-[length:100%_1px] bg-no-repeat bg-left-bottom hover:bg-[length:0%_1px]">
                             View product
                         </Link>
                     </div>

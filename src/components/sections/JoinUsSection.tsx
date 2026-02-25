@@ -51,7 +51,8 @@ export default function JoinUsSection() {
                                 src={img}
                                 alt={`Instagram feature ${i + 1}`}
                                 fill
-                                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                                className="object-cover group-hover:scale-110"
+                                style={{ transition: "scale 4s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
                             />
                         </div>
                     ))}

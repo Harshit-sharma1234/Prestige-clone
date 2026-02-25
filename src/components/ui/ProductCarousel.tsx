@@ -72,13 +72,13 @@ export default function ProductCarousel({ products }: { products: CarouselProduc
                                     {product.badge}
                                 </span>
                             )}
-                            <Image src={product.image} alt={product.name} fill className="object-contain transition-opacity duration-700 group-hover/card:opacity-0" />
+                            <Image src={product.image} alt={product.name} fill className="object-contain transition-opacity duration-150 group-hover/card:opacity-0" />
                             {product.imageHover && (
-                                <Image src={product.imageHover} alt={`${product.name} back`} fill className="object-contain transition-opacity duration-700 opacity-0 group-hover/card:opacity-100" />
+                                <Image src={product.imageHover} alt={`${product.name} back`} fill className="object-contain transition-opacity duration-150 opacity-0 group-hover/card:opacity-100" />
                             )}
                             <div className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
-                                <div className="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center">
-                                    <Plus className="w-6 h-6 text-black/40 hover:text-black transition-colors" />
+                                <div className="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center bg-white shadow-sm hover:scale-105 transition-transform duration-300">
+                                    <Plus className="w-5 h-5 text-black/60 transition-transform duration-300 hover:rotate-90 hover:text-black" />
                                 </div>
                             </div>
                         </div>
