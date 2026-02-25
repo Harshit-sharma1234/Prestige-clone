@@ -71,7 +71,7 @@ export default function CountdownSection() {
                             text="SHOP NOW"
                             href="/collections/sale"
                             variant="light"
-                            className="bg-white !text-[#1c1c1c] border-white mt-[32px] hover:!text-white group-hover/btn:bg-[#1c1c1c]"
+                            className="mt-[32px]"
                         />
                     </div>
 

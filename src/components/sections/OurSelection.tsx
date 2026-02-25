@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import AddToCartButton from "@/components/ui/AddToCartButton";
 import { ourSelectionImages as images } from "@/lib/data";
-
+import CTAButton from "../ui/CTAButton";
 export default function OurSelection() {
     const [quantity, setQuantity] = useState(1);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -73,7 +73,13 @@ export default function OurSelection() {
                                 <button onClick={() => setQuantity(quantity + 1)} className="text-black/40 hover:text-black transition-colors" aria-label="Increase quantity"><Plus className="w-3.5 h-3.5" /></button>
                             </div>
 
-                            <AddToCartButton />
+                            <CTAButton
+                                text="ADD TO CART"
+                                href="/Cart"
+                                variant="dark"
+                                animate={true}
+                                className="!text-[11px] !py-[20px] !px-14 !tracking-[0.25em]"
+                            />
                         </div>
                     </div>
                 </div>
