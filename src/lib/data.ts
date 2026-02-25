@@ -43,6 +43,7 @@ export const weekendBagProducts: WeekendBagProduct[] = [
         name: "LE COMPACT WEEKENDER BUFFALO BLACK",
         price: "$470.00",
         image: "/assets/Le-Compact-Weekender-Buffle-Noir-01_2c0fb581-2bd2-453e-a305-161fbfb97621.webp",
+        imageHover: "/assets/black-bag-back.webp",
         badge: "BEST SELLER"
     },
     {
@@ -50,12 +51,13 @@ export const weekendBagProducts: WeekendBagProduct[] = [
         name: "LE COMPACT WEEKENDER BLACK PEBBLED LEATHER",
         price: "$470.00",
         image: "/assets/Weekender-Graine-Noir-01_30f52b96-4635-4e78-a3aa-cfc6d4cfbc42.webp",
+        imageHover: "/assets/another-black-bag-back.webp",
     },
     {
         id: 3,
         name: "LE COMPACT WEEKENDER BLUE PEBBLED LEATHER",
         price: "$470.00",
-        image: "/assets/b-bag.webp",
+        image: "/assets/blue-bag-front.webp",
         imageHover: "/assets/b-bag-back.webp",
     },
     {
@@ -138,7 +140,7 @@ export const scrollSteps: ScrollStep[] = [
         step: "# 1",
         title: "THE DESIGN",
         description: "At Léo et Violette, we create our bags with you in mind. All our products are imagined and designed in Paris, in our offices on rue Sainte-Anne. Most of the time, an idea for a model comes from a need that you have expressed to us through the various feedbacks we collect throughout the year.",
-        image: "/assets/Multiple_media_with_text_-_Portrait_-_home_1.webp",
+        image: "/assets/image.png",
         link: "/pages/design"
     },
     {

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { motion, useInView } from "framer-motion";
 
 export type CarouselProduct = {
     id: number;
@@ -13,8 +14,33 @@ export type CarouselProduct = {
     badge?: string;
 };
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+            delayChildren: 0.2
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: [0.215, 0.61, 0.355, 1]
+        }
+    }
+};
+
 export default function ProductCarousel({ products }: { products: CarouselProduct[] }) {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
     const scroll = (dir: "left" | "right") => {
         const el = scrollRef.current;
@@ -22,14 +48,24 @@ export default function ProductCarousel({ products }: { products: CarouselProduc
     };
 
     return (
-        <div className="relative w-full">
+        <div ref={containerRef} className="relative w-full">
             {/* Nav arrows — appear on section hover via parent group/section */}
             <button onClick={() => scroll("left")} aria-label="Scroll left" className="absolute left-[60px]  top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white border border-black/15 shadow-sm flex items-center justify-center text-black/50 hover:text-black hover:border-black/30 transition-all opacity-0 group-hover/section:opacity-100"><ChevronLeft className="w-4 h-4" /></button>
             <button onClick={() => scroll("right")} aria-label="Scroll right" className="absolute right-[60px] top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white border border-black/15 shadow-sm flex items-center justify-center text-black/50 hover:text-black hover:border-black/30 transition-all opacity-0 group-hover/section:opacity-100"><ChevronRight className="w-4 h-4" /></button>
 
-            <div ref={scrollRef} className="flex gap-16 overflow-x-auto scrollbar-hide snap-x snap-proximity pb-4 pl-[20px]">
+            <motion.div
+                ref={scrollRef}
+                className="flex gap-16 overflow-x-auto scrollbar-hide snap-x snap-proximity pb-4 pl-[20px]"
+                variants={containerVariants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+            >
                 {products.map(product => (
-                    <div key={product.id} className="flex-shrink-0 group/card cursor-pointer snap-start">
+                    <motion.div
+                        key={product.id}
+                        variants={itemVariants}
+                        className="flex-shrink-0 group/card cursor-pointer snap-start"
+                    >
                         <div className="relative w-[358px] h-[358px] mb-6 overflow-hidden">
                             {product.badge && (
                                 <span className="absolute top-4 left-4 z-10 text-[11px] font-normal tracking-[0.1em] uppercase text-black/65 bg-[#efefef] px-[5px] py-[1px]">
@@ -50,9 +86,9 @@ export default function ProductCarousel({ products }: { products: CarouselProduc
                             <h3 className="text-[12px] tracking-[0.1em] uppercase mb-2 text-black">{product.name}</h3>
                             <p className="text-[12px] text-black/60 tracking-[0.1em]">{product.price}</p>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 }

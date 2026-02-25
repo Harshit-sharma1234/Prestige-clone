@@ -91,8 +91,9 @@ export default function Navbar() {
                     <Image
                         src="/logo.webp"
                         alt="Logo"
-                        width={120}
-                        height={36}
+                        width={130}
+                        height={21}
+                        style={{ height: '20.5px', width: 'auto' }}
                         className={`transition-all duration-300 ${isNavbarActive ? "" : "brightness-0 invert"}`}
                         priority
                     />

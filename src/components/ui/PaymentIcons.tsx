@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 
 const paymentMethods = [
     {
@@ -22,42 +22,23 @@ const paymentMethods = [
     },
     {
         name: "American Express",
-        svg: (
-            <svg viewBox="0 0 36 24" className="w-full h-full p-0.5">
-                <text x="50%" y="45%" fontSize="9" fontWeight="800" fill="white" textAnchor="middle" dominantBaseline="middle" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>AM</text>
-                <text x="50%" y="75%" fontSize="9" fontWeight="800" fill="white" textAnchor="middle" dominantBaseline="middle" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>EX</text>
-            </svg>
-        ),
-        containerClass: "border-[#0070d1]/10 bg-[#0070d1] overflow-hidden",
+        image: "/assets/download-amex.png",
+        containerClass: "border-black/5 bg-white",
     },
     {
         name: "PayPal",
-        svg: (
-            <svg viewBox="0 0 36 24" className="w-full h-full p-1.5">
-                <path d="M12 5h4c2.5 0 4 1.2 4 3s-1.5 3-4 3h-1.5l-.5 4.5h-2.5l2-10.5z" fill="#003087" />
-                <path d="M14 8h4c2.5 0 4 1.2 4 3s-1.5 3-4 3h-1.5l-.5 4.5h-2.5l2-10.5z" fill="#009cde" opacity="0.8" />
-            </svg>
-        ),
+        image: "/assets/paypal-logo.jpeg",
         containerClass: "border-black/5 bg-white",
     },
     {
         name: "Diners Club",
-        svg: (
-            <svg viewBox="0 0 38 24" className="w-full h-full p-1.5" fill="#006797">
-                <path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" />
-            </svg>
-        ),
+        image: "/assets/diners-club.png",
         containerClass: "border-black/5 bg-white",
     },
     {
         name: "Discover",
-        svg: (
-            <svg viewBox="0 0 36 24" className="w-full h-full p-1">
-                <text x="18" y="12" fontSize="6" fontWeight="900" fill="black" textAnchor="middle" dominantBaseline="middle" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>DISCOVER</text>
-                <path d="M22 18c6 0 9-4 9-4s-3 4-9 4z" fill="#F48221" />
-            </svg>
-        ),
-        containerClass: "border-black/5 bg-white overflow-hidden",
+        image: "/assets/discover-logo.png",
+        containerClass: "border-black/5 bg-white",
     },
 ];
 
@@ -67,10 +48,21 @@ export default function PaymentIcons() {
             {paymentMethods.map((method) => (
                 <div
                     key={method.name}
-                    className={`w-[50px] h-[32px] flex items-center justify-center border rounded-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-opacity hover:opacity-100 opacity-80 ${method.containerClass}`}
+                    className={`w-[50px] h-[32px] flex items-center justify-center border rounded-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-opacity hover:opacity-100 opacity-80 overflow-hidden ${method.containerClass}`}
                     aria-label={method.name}
                 >
-                    {method.svg}
+                    {method.image ? (
+                        <div className="relative w-full h-full">
+                            <Image
+                                src={method.image}
+                                alt={method.name}
+                                fill
+                                className="object-contain p-1"
+                            />
+                        </div>
+                    ) : (
+                        method.svg
+                    )}
                 </div>
             ))}
         </div>
