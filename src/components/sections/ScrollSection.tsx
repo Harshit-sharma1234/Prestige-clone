@@ -71,7 +71,7 @@ export default function ScrollSection() {
                                 <p className="text-[10px] md:text-[12px] font-medium tracking-[0.2em] uppercase mb-4 opacity-80">{step.step}</p>
                                 <h2 className="text-[28px] md:text-[22px] font-normal tracking-[0.15em] uppercase leading-tight mt-[5]">{step.title}</h2>
                                 <p className="text-[14px] md:text-[14px] font-light font-cta leading-relaxed mb-5 max-w-[380px] mt-5">{step.description}</p>
-                                <Link href={step.link} className="inline-block text-[14px] font-cta border-b border-white pb-1 hover:opacity-70 transition-opacity">Learn more</Link>
+                                <Link href={step.link} className="inline-block text-[14px] font-cta pb-1 transition-all duration-300 bg-gradient-to-r from-white to-white bg-[length:100%_1px] bg-no-repeat bg-left-bottom hover:bg-[length:0%_1px]">Learn more</Link>
                             </motion.div>
                         ))}
                     </div>

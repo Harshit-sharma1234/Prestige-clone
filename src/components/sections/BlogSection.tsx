@@ -67,7 +67,7 @@ export default function BlogSection() {
                             <div className="mt-8 flex flex-col items-start px-4 md:px-0">
                                 <p className="text-[10px] md:text-[12px] font-medium tracking-[0.2em] uppercase text-black/50 font-sans">{post.category}</p>
                                 <h3 className="text-[16px] md:text-[18px] mt-4 tracking-[0.15em] font-normal uppercase text-[#1c1c1c] leading-[1.4] font-sans whitespace-pre-line min-h-[48px]">{post.title}</h3>
-                                <Link href={post.link} className="inline-block mt-6 text-[14px] font-cta text-[#1c1c1c] border-b border-[#1c1c1c] pb-0.5 hover:opacity-60 transition-opacity">Read more</Link>
+                                <Link href={post.link} className="inline-block mt-6 text-[14px] font-cta text-[#1c1c1c] pb-0.5 transition-all duration-300 bg-gradient-to-r from-[#1c1c1c] to-[#1c1c1c] bg-[length:100%_1px] bg-no-repeat bg-left-bottom hover:bg-[length:0%_1px]">Read more</Link>
                             </div>
                         </motion.div>
                     ))}

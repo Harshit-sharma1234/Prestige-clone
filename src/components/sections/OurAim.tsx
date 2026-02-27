@@ -73,7 +73,7 @@ export default function OurAim() {
                                 alt="Women collection"
                                 fill
                                 className="object-cover group-hover:scale-110"
-                                style={{ transition: "scale 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+                                style={{ transition: "scale 3s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
                             />
                             <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
                             <span className="absolute inset-0 flex items-center justify-center text-white text-[24px] md:text-[32px] tracking-[0.15em] uppercase">
@@ -99,7 +99,7 @@ export default function OurAim() {
                                     alt="Men collection"
                                     fill
                                     className="object-cover group-hover:scale-110"
-                                    style={{ transition: "scale 1.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+                                    style={{ transition: "scale 3s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
                                 />
                                 <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
                                 <span className="absolute inset-0 flex items-center justify-center text-white text-[18px] md:text-[22px] tracking-[0.25em] uppercase font-medium">
@@ -123,7 +123,7 @@ export default function OurAim() {
                                     alt="Accessories"
                                     fill
                                     className="object-cover group-hover:scale-110"
-                                    style={{ transition: "scale 1.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+                                    style={{ transition: "scale 3s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
                                 />
                                 <div className="absolute inset-0 bg-black/5 transition-colors duration-500" />
                                 <span className="absolute inset-0 flex items-center justify-center text-white text-[16px] md:text-[18px] tracking-[0.25em] uppercase font-medium">

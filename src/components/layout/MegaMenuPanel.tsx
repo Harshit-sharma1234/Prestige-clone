@@ -61,7 +61,7 @@ export default function MegaMenuPanel({ data, onClose, onMouseEnter, onMouseLeav
                                                         <Link
                                                             href={link.href}
                                                             onClick={onClose}
-                                                            className="text-[14px] text-[#1C1C1CA6] hover:text-[#1C1C1C] transition-colors duration-200"
+                                                            className="inline-block text-[14px] text-[#1C1C1CA6] pb-0.5 transition-all duration-300 bg-gradient-to-r from-[#1C1C1C] to-[#1C1C1C] bg-[length:0%_1px] bg-no-repeat bg-left-bottom hover:bg-[length:100%_1px] hover:text-[#1C1C1C]"
                                                             style={{ fontFamily: 'Nunito, sans-serif' }}
                                                         >
                                                             {link.label}

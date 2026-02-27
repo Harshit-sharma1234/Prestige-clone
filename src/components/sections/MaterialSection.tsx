@@ -28,7 +28,7 @@ export default function MaterialSection() {
 
                     <a
                         href="/pages/materials"
-                        className="inline-block text-[11px] text-[#1c1c1c] border-b border-black pb-0.5 hover:opacity-60 transition-opacity font-nunito"
+                        className="inline-block text-[11px] text-[#1c1c1c] pb-0.5 transition-all duration-300 bg-gradient-to-r from-[#1c1c1c] to-[#1c1c1c] bg-[length:100%_1px] bg-no-repeat bg-left-bottom hover:bg-[length:0%_1px] font-nunito"
                     >
                         Learn more
                     </a>

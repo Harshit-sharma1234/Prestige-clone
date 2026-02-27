@@ -7,11 +7,19 @@ import { bestSellerProducts as products } from "@/lib/data";
 
 type Tab = "women" | "men";
 
+import { motion } from "framer-motion";
+
 function TabButton({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
     return (
         <button onClick={onClick} className="relative pb-[2px] transition-colors text-primary-black">
             {label}
-            {active && <div className="absolute bottom-0 left-0 w-full h-[1px] bg-black" />}
+            {active && (
+                <motion.div
+                    layoutId="activeTabUnderline"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    className="absolute bottom-0 left-0 w-full h-[1px] bg-black"
+                />
+            )}
         </button>
     );
 }
