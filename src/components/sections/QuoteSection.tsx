@@ -79,7 +79,7 @@ export default function QuoteSection() {
                         <button
                             key={quote.id}
                             onClick={() => setActiveIndex(idx)}
-                            className={`transition-all duration-300 flex items-center justify-center grayscale hover:grayscale-0 ${activeIndex === idx ? "opacity-100 grayscale-0 brightness-200" : "opacity-40 hover:opacity-75"
+                            className={`transition-all duration-300 flex items-center justify-center grayscale ${activeIndex === idx ? "opacity-100 grayscale-0 brightness-200" : "opacity-40"
                                 }`}
                             aria-label={`Show quote from ${quote.id}`}
                         >
