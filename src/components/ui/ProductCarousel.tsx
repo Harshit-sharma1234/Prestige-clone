@@ -77,7 +77,7 @@ export default function ProductCarousel({ products }: { products: CarouselProduc
                                 <Image src={product.imageHover} alt={`${product.name} back`} fill className="object-contain transition-opacity duration-150 opacity-0 group-hover/card:opacity-100" />
                             )}
                             <div className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
-                                <div className="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center bg-white shadow-sm hover:scale-105 transition-transform duration-300">
+                                <div className="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center bg-white shadow-sm transition-transform duration-300">
                                     <Plus className="w-5 h-5 text-black/60 transition-transform duration-300 hover:rotate-90 hover:text-black" />
                                 </div>
                             </div>
