@@ -168,6 +168,8 @@ export const bestSellerProducts: Record<"women" | "men", Product[]> = {
         { id: 6, name: "MEN'S MESSENGER BROWN", price: "$320.00", image: "/assets/BAG-FRONT-3.webp", imageHover: "/assets/MEN-2.webp" },
         { id: 7, name: "MEN'S BACKPACK BLACK", price: "$420.00", image: "/assets/BAG FRONT-5.webp", imageHover: "/assets/MEN-3.webp" },
         { id: 8, name: "MEN'S WEEKENDER BAG", price: "$470.00", image: "/assets/BAG-FRONT-2.webp", imageHover: "/assets/MEN-4.webp", badge: "BEST SELLER" },
+        { id: 10, name: "LE PORTFOLIO NAVY", price: "$390.00", image: "/assets/le_portfolio_navy.png", imageHover: "/assets/le_portfolio_navy.png", badge: "NEW" },
+        { id: 11, name: "LE NOUVEAU CARTABLE KHAKI", price: "$420.00", image: "/assets/le_nouveau_cartable_khaki.png", imageHover: "/assets/le_nouveau_cartable_khaki.png", badge: "NEW" },
     ],
 };
 

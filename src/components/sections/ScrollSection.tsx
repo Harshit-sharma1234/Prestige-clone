@@ -34,9 +34,9 @@ export default function ScrollSection() {
                         src="/assets/Images_with_text_scroll_-_Background_image_-_Desktop_-_home.webp"
                         alt="Background"
                         fill
-                        className="object-cover opacity-90"
+                        className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/30" />
+                    <div className="absolute inset-0 bg-black/20" />
                 </div>
 
                 <div className="relative z-10 mx-auto max-w-[1440px] w-full px-6 md:px-[160px] flex flex-col md:flex-row items-center gap-12 md:gap-24 h-full">
@@ -69,9 +69,9 @@ export default function ScrollSection() {
                                 className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
                             >
                                 <p className="text-[10px] md:text-[12px] font-medium tracking-[0.2em] uppercase mb-4 opacity-80">{step.step}</p>
-                                <h2 className="text-[28px] md:text-[22px] font-normal tracking-[0.15em] uppercase leading-tight mt-[5]">{step.title}</h2>
-                                <p className="text-[14px] md:text-[14px] font-light font-cta leading-relaxed mb-5 max-w-[380px] mt-5">{step.description}</p>
-                                <Link href={step.link} className="inline-block text-[14px] font-cta pb-1 transition-all duration-300 bg-gradient-to-r from-white to-white bg-[length:100%_1px] bg-no-repeat bg-left-bottom hover:bg-[length:0%_1px]">Learn more</Link>
+                                <h2 className="text-[28px] md:text-[22px] font-sans font-normal tracking-[0.15em] uppercase leading-tight mt-[5]">{step.title}</h2>
+                                <p className="text-[14px] font-nunito leading-[1.6] mb-8 max-w-[550px] mt-6 text-white/90">{step.description}</p>
+                                <Link href={step.link} className="inline-block text-[14px] font-nunito pb-1 transition-all duration-300 border-b border-white hover:opacity-80">Learn more</Link>
                             </motion.div>
                         ))}
                     </div>

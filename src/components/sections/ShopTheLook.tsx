@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
 import { shopTheLookData as looks } from "@/lib/data";
 import type { HotspotProduct, Look } from "@/lib/types";
@@ -84,6 +84,13 @@ export default function ShopTheLook() {
                                     {item.badge && <span className="absolute top-0 left-0 text-[10px] tracking-[0.1em] text-black/60 uppercase z-10">{item.badge}</span>}
                                     <Image src={item.image} alt={item.name} fill className="object-contain transition-opacity duration-700 group-hover/card:opacity-0" />
                                     <Image src={item.imageHover} alt={`${item.name} back`} fill className="object-contain transition-opacity duration-700 opacity-0 group-hover/card:opacity-100" />
+
+                                    {/* Plus Icon Overlay */}
+                                    <div className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 z-20">
+                                        <div className="absolute bottom-4 right-4 w-10 h-10 bg-white flex items-center justify-center shadow-sm cursor-pointer">
+                                            <Plus className="w-5 h-5 text-[#1c1c1c] transition-transform duration-500 hover:rotate-90" strokeWidth={1} />
+                                        </div>
+                                    </div>
                                 </div>
                                 <h3 className="text-[12px] tracking-[0.15em] uppercase text-[#1c1c1c] mb-2 font-medium">{item.name}</h3>
                                 <p className="text-[12px] text-black/60 tracking-[0.1em] mb-8">{item.price}</p>

@@ -45,9 +45,8 @@ export default function AboutFromAtoZSection() {
                                     src={item.image}
                                     alt={item.title}
                                     fill
-                                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                                    className="object-cover transition-transform duration-[3000ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-110"
                                     priority={index === 0}
-                                    style={{ transition: "scale 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
                                 />
                             </div>
 

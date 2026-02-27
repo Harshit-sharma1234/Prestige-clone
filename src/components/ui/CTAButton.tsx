@@ -44,7 +44,7 @@ export default function CTAButton({
         <>
             <span className="relative z-10 block transition-colors duration-500 font-nunito">{text}</span>
             {animate && (
-                <div className={`absolute inset-0 transition-transform duration-500 ease-in-out group-hover/btn:translate-x-full ${isDark ? "bg-[#1c1c1c]" : "bg-white"}`} />
+                <div className={`absolute inset-0 transition-transform duration-500 ease-in-out scale-x-100 origin-left group-hover/btn:scale-x-0 group-hover/btn:origin-right ${isDark ? "bg-[#1c1c1c]" : "bg-white"}`} />
             )}
         </>
     );

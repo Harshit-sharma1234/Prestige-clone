@@ -48,14 +48,26 @@ export default function ProductCarousel({ products }: { products: CarouselProduc
     };
 
     return (
-        <div ref={containerRef} className="relative w-full">
-            {/* Nav arrows — appear on section hover via parent group/section */}
-            <button onClick={() => scroll("left")} aria-label="Scroll left" className="absolute left-[60px]  top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white border border-black/15 shadow-sm flex items-center justify-center text-black/50 hover:text-black hover:border-black/30 transition-all opacity-0 group-hover/section:opacity-100"><ChevronLeft className="w-4 h-4" /></button>
-            <button onClick={() => scroll("right")} aria-label="Scroll right" className="absolute right-[60px] top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white border border-black/15 shadow-sm flex items-center justify-center text-black/50 hover:text-black hover:border-black/30 transition-all opacity-0 group-hover/section:opacity-100"><ChevronRight className="w-4 h-4" /></button>
+        <div ref={containerRef} className="relative w-full group/carousel">
+            {/* Nav arrows — appear on section hover or carousel hover */}
+            <button
+                onClick={() => scroll("left")}
+                aria-label="Scroll left"
+                className="absolute left-[30px] md:left-[60px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white border border-black/10 shadow-md flex items-center justify-center text-black/50 hover:text-black hover:border-black/30 transition-all opacity-0 group-hover/section:opacity-100 group-hover/carousel:opacity-100"
+            >
+                <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+                onClick={() => scroll("right")}
+                aria-label="Scroll right"
+                className="absolute right-[30px] md:right-[60px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white border border-black/10 shadow-md flex items-center justify-center text-black/50 hover:text-black hover:border-black/30 transition-all opacity-0 group-hover/section:opacity-100 group-hover/carousel:opacity-100"
+            >
+                <ChevronRight className="w-5 h-5" />
+            </button>
 
             <motion.div
                 ref={scrollRef}
-                className="flex gap-16 overflow-x-auto scrollbar-hide snap-x snap-proximity pb-4 pl-[20px]"
+                className="flex gap-8 md:gap-16 overflow-x-auto scrollbar-hide snap-x snap-proximity pb-8 px-6 md:px-20"
                 variants={containerVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}

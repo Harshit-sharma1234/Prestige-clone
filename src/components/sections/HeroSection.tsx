@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { slides } from "@/lib/data";
+import CTAButton from "@/components/ui/CTAButton";
 
 const SLIDE_DURATION = 3500; // Total time per slide including transition
 
@@ -93,17 +94,13 @@ export default function HeroSection() {
 
                     <div className="flex w-full flex-row justify-center gap-4 md:gap-8">
                         {currentSlide.buttons.map((btn, i) => (
-                            <Link
+                            <CTAButton
                                 key={i}
+                                text={btn.text}
                                 href={btn.href}
-                                className={`group relative md:flex-none px-[20px] py-[10px] text-[13px] font-cta uppercase tracking-[0.2em] overflow-hidden border transition-colors duration-300 ease-in whitespace-nowrap hover:text-white ${btn.text === "MEN"
-                                    ? "text-white border-transparent hover:border-black"
-                                    : "text-black border-white"
-                                    }`}
-                            >
-                                <span className={`absolute inset-0 w-full h-full transition-transform duration-300 ease-in group-hover:translate-x-full ${btn.text === "MEN" ? "bg-[#1c1c1c]" : "bg-white"}`}></span>
-                                <span className="relative z-10">{btn.text}</span>
-                            </Link>
+                                variant={btn.text === "MEN" ? "dark" : "light"}
+                                className={btn.text === "MEN" ? "border-transparent hover:border-black" : "border-white"}
+                            />
                         ))}
                     </div>
                 </div>
