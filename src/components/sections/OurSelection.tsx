@@ -19,7 +19,7 @@ export default function OurSelection() {
                     <h2 className="text-[28px] tracking-[0.2em] font-normal uppercase text-[#1c1c1c] font-sans">PRODUCT OF THE WEEK</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[160px] items-center justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[160px] items-start justify-center">
                     {/* Media */}
                     <div className="flex flex-col items-center">
                         <div className="w-full md:w-[649px] aspect-square relative overflow-hidden mb-12">
@@ -48,7 +48,7 @@ export default function OurSelection() {
                     </div>
 
                     {/* Info */}
-                    <div className="flex flex-col items-start max-w-[480px]">
+                    <div className="flex flex-col items-start max-w-[480px] sticky top-[120px]">
                         <span className="text-[9px] tracking-[0.2em] text-black/40 uppercase mb-5">NEW</span>
                         <h3 className="text-[22px] tracking-[0.15em] text-[#1c1c1c] uppercase font-normal mb-4 leading-tight">LE CONTINENTAL CAMEL LIÉGÉ</h3>
                         <p className="text-[18px] text-black/65 font-sans mb-6 font-light tracking-wide">$200.00</p>

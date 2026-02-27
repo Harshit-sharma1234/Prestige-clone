@@ -49,7 +49,7 @@ export default function BlogSection() {
                 </motion.div>
 
                 {/* Blog Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
                     {blogPosts.map((post, index) => (
                         <motion.div
                             key={post.id}
